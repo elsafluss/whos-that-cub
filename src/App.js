@@ -1,21 +1,23 @@
 import './App.css';
 import React, { Component } from 'react'
-import Search from './Search'
+import Find from './Find'
+import List from './List'
 import CardFront from './CardFront'
+import CardBack from './CardBack';
 
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   render() {
     return (
       <div>
-        <Search />
+        <Find />
         <CardFront />
+        <CardBack />
+        <List />
       </div>
     )
   }

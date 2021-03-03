@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import './Find.css'
 
-class Search extends Component {
+class Find extends Component {
     constructor() {
         super()
         this.state = {
@@ -11,10 +12,10 @@ class Search extends Component {
     render() {
         return (
             <div>
-                search
+                find
             </div>
         )
     }
 }
 
-export default Search
+export default Find
