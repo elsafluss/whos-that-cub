@@ -1,35 +1,41 @@
 import React, { Component } from 'react'
+import CardFront from './CardFront'
+import onePlayer from './SinglePlayerData.json'
 import './Find.css'
 
 class Find extends Component {
     constructor() {
         super()
         this.state = {
-            player: ''
+            playerName: ''
         }
     }
 
     handleChange = (event) => {
-        console.log(event.target.value)
-        this.setState({ player: event.target.value })
+        this.setState({ playerName: event.target.value })
+    }
+    
+    getPlayerData = () => {
+        // this will be an API call
+        const playerData = onePlayer.find(player => player.PlayerID === )
     }
 
     render() {
-        // console.log(this.props.players)
-        const opts = this.props.players.map((player, index) => {
+        const opts = this.props.players.map((player) => {
             const fullName = `${player.FirstName} ${player.LastName}`
+            const playerID = `${player.PlayerID}`
             return (
-                <option value={fullName} key={index}>{fullName}</option>
+                <option value={fullName} key={playerID} id={playerID}>{fullName}</option>
             )
         })
         return (
             <div>
                 <form>
-                    <select value={this.state.player} onChange={this.handleChange}>
+                    <select value={this.state.playerName} onChange={this.handleChange}>
                         {opts}
                     </select>
                 </form>
-                find
+                <CardFront playerName={this.state.playerName}/>
             </div>
         )
     }

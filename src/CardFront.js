@@ -11,7 +11,7 @@ class CardFront extends Component {
     render() {
         return (
             <div>
-                front of card
+                {this.props.playerName}
             </div>
         )
     }
