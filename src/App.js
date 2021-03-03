@@ -1,11 +1,25 @@
 import './App.css';
+import React, { Component } from 'react'
+import Search from './Search'
+import CardFront from './CardFront'
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
 
-    </div>
-  );
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Search />
+        <CardFront />
+      </div>
+    )
+  }
 }
+
 
 export default App;
