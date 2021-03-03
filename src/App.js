@@ -1,10 +1,10 @@
 import './App.css';
 import React, { Component } from 'react'
-import List from './List'
 import Find from './Find'
+import List from './List'
 import CardFront from './CardFront'
 import CardBack from './CardBack';
-import allPlayers from './wholeTeamData.json'
+import allPlayers from './WholeTeamData.json'
 
 class App extends Component {
   constructor() {
@@ -26,7 +26,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
+        <header className="header">WHO'S THAT CUB?</header>
         <Find players={this.state.activePlayers}/>
         <CardFront />
         <CardBack />
