@@ -1,41 +1,52 @@
 import React, { Component } from 'react'
 import CardFront from './CardFront'
-import onePlayer from './SinglePlayerData.json'
+// import onePlayer from './SinglePlayerData.json'
+import allPlayers from './WholeTeamData.json'
 import './Find.css'
 
 class Find extends Component {
     constructor() {
         super()
         this.state = {
-            playerName: ''
+            playerName: '',
+            playerData: {}
         }
     }
 
     handleChange = (event) => {
         this.setState({ playerName: event.target.value })
+        this.getPlayerData()
     }
     
+    handleClick = (event) => {
+        event.preventDefault()
+        this.getPlayerData()
+    }
+
     getPlayerData = () => {
+        const lastName = this.state.playerName.split(',')
+        const thisPlayer = allPlayers.find(player => player.LastName === lastName[0])
+        this.setState({ playerData: thisPlayer })
         // this will be an API call
-        const playerData = onePlayer.find(player => player.PlayerID === )
     }
 
     render() {
-        const opts = this.props.players.map((player) => {
-            const fullName = `${player.FirstName} ${player.LastName}`
+        const opts = this.props.players.map((player, index) => {
+            const fullName = `${player.LastName}, ${player.FirstName}`
             const playerID = `${player.PlayerID}`
             return (
-                <option value={fullName} key={playerID} id={playerID}>{fullName}</option>
+                <option value={fullName} key={playerID} id={player.PlayerID}>{fullName}</option>
             )
         })
         return (
             <div>
                 <form>
-                    <select value={this.state.playerName} onChange={this.handleChange}>
+                    <select value={this.state.playerName} id="select-player" onChange={this.handleChange}>
                         {opts}
                     </select>
+                    <button onClick={this.handleClick}>show this player</button>
                 </form>
-                <CardFront playerName={this.state.playerName}/>
+                <CardFront playerName={this.state.playerName} playerData={this.state.playerData}/>
             </div>
         )
     }
