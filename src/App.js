@@ -4,8 +4,8 @@ import Find from './Find'
 import List from './List'
 import CardFront from './CardFront'
 import CardBack from './CardBack';
-// import allPlayers from './WholeTeamData.json'
-import { getAllCubsPlayers } from './Utility';
+import { getAllCubsPlayers, online } from './Utility';
+
 
 class App extends Component {
   constructor() {
@@ -16,10 +16,16 @@ class App extends Component {
     }
   }
 
+  // to turn on/off the API call, change const 'online' in Utility
   componentDidMount() {
-    getAllCubsPlayers()
-    .then(data => this.getActivePlayers(data))
-    .catch(error => console.log(error))
+    if (online) {
+      getAllCubsPlayers()
+      .then(data => this.getActivePlayers(data))
+      .catch(error => console.log(error))
+    } else {
+      const allPlayers = getAllCubsPlayers()
+      this.getActivePlayers(allPlayers)
+    }
   }
 
   getActivePlayers(players) {
