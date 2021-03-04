@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CardFront from './CardFront'
 // import onePlayer from './SinglePlayerData.json'
-import allPlayers from './WholeTeamData.json'
+// import allPlayers from './WholeTeamData.json'
 import './Find.css'
 
 class Find extends Component {
@@ -15,33 +15,39 @@ class Find extends Component {
 
     handleChange = (event) => {
         this.setState({ playerName: event.target.value })
-        this.getPlayerData()
     }
     
     handleClick = (event) => {
         event.preventDefault()
-        this.getPlayerData()
+        this.getSinglePlayerData()
     }
 
-    getPlayerData = () => {
+    componentDidMount() {
+
+    }
+    
+    getSinglePlayerData = () => {
         const lastName = this.state.playerName.split(',')
-        const thisPlayer = allPlayers.find(player => player.LastName === lastName[0])
+        const thisPlayer = this.props.players.find(player => player.LastName === lastName[0])
         this.setState({ playerData: thisPlayer })
-        // this will be an API call
     }
-
+    
     render() {
-        const opts = this.props.players.map((player, index) => {
+        const opts = this.props.players.map(player => {
             const fullName = `${player.LastName}, ${player.FirstName}`
             const playerID = `${player.PlayerID}`
             return (
                 <option value={fullName} key={playerID} id={player.PlayerID}>{fullName}</option>
             )
         })
+
         return (
             <div>
                 <form>
-                    <select value={this.state.playerName} id="select-player" onChange={this.handleChange}>
+                    <select 
+                        value={this.state.playerName} 
+                        id="select-player" 
+                        onChange={this.handleChange}>
                         {opts}
                     </select>
                     <button onClick={this.handleClick}>show this player</button>

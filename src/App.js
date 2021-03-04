@@ -4,22 +4,25 @@ import Find from './Find'
 import List from './List'
 import CardFront from './CardFront'
 import CardBack from './CardBack';
-import allPlayers from './WholeTeamData.json'
+// import allPlayers from './WholeTeamData.json'
+import { getAllCubsPlayers } from './Utility';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      allPlayers: allPlayers,
+      allPlayers: [],
       activePlayers: []
     }
   }
 
   componentDidMount() {
-    this.sortOutMajors(this.state.allPlayers)
+    getAllCubsPlayers()
+    .then(data => this.getActivePlayers(data))
+    .catch(error => console.log(error))
   }
 
-  sortOutMajors(players) {
+  getActivePlayers(players) {
     const activePlayers = players.filter(player => player.Status === 'Active')
     this.setState({ activePlayers: activePlayers })
   }
