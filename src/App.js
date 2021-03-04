@@ -1,10 +1,10 @@
 import './App.css';
 import React, { Component } from 'react'
 import Find from './Find'
-import List from './List'
 import CardFront from './CardFront'
-import CardBack from './CardBack';
 import { getAllCubsPlayers, online } from './Utility';
+import { Route, Switch } from 'react-router-dom';
+import favoritePlayer from './SinglePlayerData.json'
 
 
 class App extends Component {
@@ -14,9 +14,11 @@ class App extends Component {
       allPlayers: [],
       activePlayers: []
     }
+    this.setPlayersName = this.setPlayersName.bind(this)
+
   }
 
-  // to turn on/off the API call, change const 'online' in Utility
+  // to turn on/off the API call, toggle 'online' const in Utility
   componentDidMount() {
     if (online) {
       getAllCubsPlayers()
@@ -27,20 +29,31 @@ class App extends Component {
       this.getActivePlayers(allPlayers)
     }
   }
-
+  
   getActivePlayers(players) {
     const activePlayers = players.filter(player => player.Status === 'Active')
     this.setState({ activePlayers: activePlayers })
+  }
+
+  setPlayersName() {
+    this.state.activePlayers.map(player => {
+      const fullName = `${player.LastName}, ${player.FirstName}`
+      player.name = fullName
+      return fullName
+    })
   }
 
   render() {
     return (
       <div className="app">
         <header className="header">WHO'S THAT CUB?</header>
-        <Find players={this.state.activePlayers}/>
-        <CardFront />
-        <CardBack />
-        <List />
+        <Find players={this.state.activePlayers} setPlayersName={this.setPlayersName}/>
+        <Switch>
+          <Route exact path="/" render={() => <CardFront playerData={favoritePlayer} />} /> 
+          <Route path="/:{playerName}" /> if :playerName, render cardfront of that player
+          <Route path="/:{playerName}/back" /> :playerName/back, render cardback of that player
+          <Route path="/*" /> same as "/"
+        </Switch>
       </div>
     )
   }
