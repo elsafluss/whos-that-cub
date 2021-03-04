@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CardFront from './CardFront'
+import { Link } from 'react-router-dom'
 // import onePlayer from './SinglePlayerData.json'
 // import allPlayers from './WholeTeamData.json'
 import './Find.css'
@@ -25,21 +26,12 @@ class Find extends Component {
 
     }
     
-    getSinglePlayerData = () => {
-        const lastName = this.state.playerName.split(',')
-        const thisPlayer = this.props.players.find(player => player.LastName === lastName[0])
-        this.setState({ playerData: thisPlayer })
-    }
-    
     render() {
-        // move the "get player's name" function to App, pass the returned value down
-
         const opts = this.props.players.map((player, index) => {
-            this.props.setPlayersName()
             const playerID = `${player.PlayerID}`
             const fullName = this.props.players[index].name
             return (
-                <option value={fullName} key={playerID} id={player.PlayerID}>{fullName}</option>
+                <option value={fullName} key={playerID} id={playerID}>{fullName}</option>
             )
         })
 
@@ -52,7 +44,7 @@ class Find extends Component {
                         onChange={this.handleChange}>
                         {opts}
                     </select>
-                    <button onClick={this.handleClick}>show this player</button>
+                    <Link to='/front' playerData={this.props.players} onClick={this.handleClick}>show this player</Link>
                 </form>
                 {this.state.playerName && <CardFront playerName={this.state.playerName} playerData={this.state.playerData}/>}
             </div>

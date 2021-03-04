@@ -7,9 +7,9 @@ class CardFront extends Component {
     }
 
     render() {
-        // console.log(this.props)
             return (
                 <div>
+                card front
                     <p>
                         {this.props.playerData.FirstName} {this.props.playerData.LastName}
                     </p>
