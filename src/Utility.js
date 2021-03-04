@@ -9,3 +9,6 @@ export function getAllCubsPlayers() {
         return allPlayers
     }
 }
+
+// do i care that i'm sending around a bunch of data that i don't care about?
+// like XmlTeamPlayerID?

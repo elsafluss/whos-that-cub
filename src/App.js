@@ -2,7 +2,7 @@ import './App.css';
 import React, { Component } from 'react'
 import Find from './Find'
 import CardFront from './CardFront'
-import CardBack from './CardBack'
+// import CardBack from './CardBack'
 import { getAllCubsPlayers, online } from './Utility';
 import { Route, Switch } from 'react-router-dom';
 import favoritePlayer from './SinglePlayerData.json'
@@ -41,11 +41,11 @@ class App extends Component {
         <header className="header">WHO'S THAT CUB?</header>
           <Find 
             players={this.state.activePlayers} 
-            setPlayersName={this.setPlayersName} 
+            // setPlayersName={this.setPlayersName} 
           />
         <Switch>
           <Route exact path="/" render={() => <CardFront playerData={favoritePlayer} />} /> 
-          {/* <Route path="/front" render={() => <CardFront playerData={favoritePlayer}/>} />  */}
+          <Route path="/front" render={() => <CardFront playerData={favoritePlayer}/>} /> 
           {/* <Route path="/back" render={() => <CardBack playerData={this.state.playerName} />} />  */}
           <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>
