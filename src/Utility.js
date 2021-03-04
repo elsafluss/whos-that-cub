@@ -1,5 +1,4 @@
 import allPlayers from './WholeTeamData.json'
-
 export const online = false
 
 export function getAllCubsPlayers() {

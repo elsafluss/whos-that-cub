@@ -8,7 +8,6 @@ class Find extends Component {
     constructor() {
         super()
         this.state = {
-            playerName: '',
             playerData: {}
         }
     }
@@ -33,9 +32,12 @@ class Find extends Component {
     }
     
     render() {
-        const opts = this.props.players.map(player => {
-            const fullName = `${player.LastName}, ${player.FirstName}`
+        // move the "get player's name" function to App, pass the returned value down
+
+        const opts = this.props.players.map((player, index) => {
+            this.props.setPlayersName()
             const playerID = `${player.PlayerID}`
+            const fullName = this.props.players[index].name
             return (
                 <option value={fullName} key={playerID} id={player.PlayerID}>{fullName}</option>
             )
@@ -52,7 +54,7 @@ class Find extends Component {
                     </select>
                     <button onClick={this.handleClick}>show this player</button>
                 </form>
-                <CardFront playerName={this.state.playerName} playerData={this.state.playerData}/>
+                {this.state.playerName && <CardFront playerName={this.state.playerName} playerData={this.state.playerData}/>}
             </div>
         )
     }

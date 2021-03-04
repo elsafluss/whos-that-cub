@@ -7,7 +7,7 @@ class CardFront extends Component {
     }
 
     render() {
-        if(this.props.playerData) {
+        // console.log(this.props)
             return (
                 <div>
                     <p>
@@ -22,10 +22,8 @@ class CardFront extends Component {
                     <img src={this.props.playerData.PhotoUrl} alt="the player"></img>
                 </div>
             )
-        } else {
-            return null
-        }
+        } 
     }
-}
+
 
 export default CardFront
