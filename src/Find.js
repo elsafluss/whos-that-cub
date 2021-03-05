@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import { Redirect } from 'react-router-dom'
 import CardFront from './CardFront'
 // import { Link } from 'react-router-dom'
 // import onePlayer from './SinglePlayerData.json'
@@ -28,26 +29,36 @@ class Find extends Component {
     }
     
     render() {
-        console.log(this.state)
         const opts = this.props.players.map(player => {
             return (<option 
                 value={player.PlayerID} 
                 key={player.PlayerID}>
                 {player.FanDuelName}</option>)
         })
+        if (this.state.playerData.PlayerID) {
+            return (
+                <div>
+                    <form>
+                        <select onChange={(event) => this.handleChange(event)}>
+                            {opts}
+                        </select>
+                    </form>  
+                    <CardFront playerData={this.state.playerData}/>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <form>
+                        <select onChange={(event) => this.handleChange(event)}>
+                            {opts}
+                        </select>
+                    </form>
+                    <div>no player chosen</div>
+                </div>
+            )
+        }
 
-        return (
-            <div>
-                <form>
-                    <select onChange={this.handleChange}>
-                        {opts}
-                    </select>
-                </form>
-                {!this.state.playerData ? <div>no player chosen</div> :
-                <CardFront fromHome={false} playerData={this.state.playerData}/>
-                }
-            </div>
-        )
     }
 }
 
