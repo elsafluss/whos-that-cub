@@ -44,8 +44,8 @@ class App extends Component {
             // setPlayersName={this.setPlayersName} 
           />
         <Switch>
-          <Route exact path="/" render={() => <CardFront playerData={favoritePlayer} />} /> 
-          <Route path="/front" render={() => <CardFront playerData={favoritePlayer}/>} /> 
+          <Route exact path="/" render={() => <CardFront fromHome={true} />} /> 
+          {/* <Route path="/front" render={() => <CardFront />} />  */}
           {/* <Route path="/back" render={() => <CardBack playerData={this.state.playerName} />} />  */}
           <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>

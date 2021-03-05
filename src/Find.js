@@ -32,7 +32,8 @@ class Find extends Component {
         const opts = this.props.players.map(player => {
             return (<option 
                 value={player.PlayerID} 
-                key={player.PlayerID}>{player.FanDuelName}</option>)
+                key={player.PlayerID}>
+                {player.FanDuelName}</option>)
         })
 
         return (
@@ -42,8 +43,8 @@ class Find extends Component {
                         {opts}
                     </select>
                 </form>
-                {!this.state.playerData.length ? <div>no player chosen</div> :
-                <CardFront playerData={this.state.playerData}/>
+                {!this.state.playerData ? <div>no player chosen</div> :
+                <CardFront fromHome={false} playerData={this.state.playerData}/>
                 }
             </div>
         )
