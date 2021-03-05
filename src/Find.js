@@ -39,7 +39,7 @@ class Find extends Component {
             return (
                 <div>
                     <form>
-                        <select onChange={(event) => this.handleChange(event)}>
+                        <select value={'Javy'} onSelect={(event) => this.handleChange(event)}>
                             {opts}
                         </select>
                     </form>  
@@ -50,7 +50,7 @@ class Find extends Component {
             return (
                 <div>
                     <form>
-                        <select onChange={(event) => this.handleChange(event)}>
+                        <select value={'Javier Baez'} onChange={(event) => this.handleChange(event)}>
                             {opts}
                         </select>
                     </form>

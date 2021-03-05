@@ -9,7 +9,6 @@ class CardFront extends Component {
 
 
     render() {
-        // i have playerData here, pass it through to /back in this Link
         return (
             <Link to={{
                 pathname: '/back',
