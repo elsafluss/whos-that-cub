@@ -4,3 +4,8 @@ body {
   background-color: #4b5a51;
 }
 
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
