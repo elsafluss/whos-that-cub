@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import { Redirect } from 'react-router-dom'
+import Select from 'react-select'
 import CardFront from './CardFront'
 // import { Link } from 'react-router-dom'
 // import onePlayer from './SinglePlayerData.json'
@@ -11,38 +12,30 @@ class Find extends Component {
         super()
         this.state = {
             playerData: {},
-            playerID: ''
+            playerID: null
         }
     }
 
     handleChange = (event) => {
-        this.setState({ playerID: event.target.value })
+        this.setState({ playerID: event.value })
         this.getSinglePlayerData(event)
     }
     
     getSinglePlayerData(event) {
         const currentPlayer = this.props.players.find(player => {
-            return player.PlayerID === Number(event.target.value)
+            return player.PlayerID === Number(event.value)
         })
         this.setState({ playerData: currentPlayer })
         return currentPlayer
     }
     
     render() {
-        const opts = this.props.players.map(player => {
-            return (<option 
-                value={player.PlayerID} 
-                key={player.PlayerID}>
-                {player.FanDuelName}</option>)
-        })
+        const opts = this.props.players.map(player => {return {value: player.PlayerID, label: player.FanDuelName}})
         if (this.state.playerData.PlayerID) {
             return (
                 <div>
                     <form>
-                        <select onChangeCapture={(event) => this.handleChange(event)}>
-                            
-                            {"Choose a player"}{opts}
-                        </select>
+                        <Select onChange={(event) => this.handleChange(event)} value={this.state.playerID} options={opts}/>
                     </form>  
                     <CardFront playerData={this.state.playerData}/>
                 </div>
@@ -51,9 +44,7 @@ class Find extends Component {
             return (
                 <div>
                     <form>
-                        <select onChangeCapture={(event) => this.handleChange(event)}>
-                            {"Choose a player"}{opts}
-                        </select>
+                        <Select onChange={(event) => this.handleChange(event)} value={this.state.playerID} options={opts}/>
                     </form>
                     <div>no player chosen</div>
                 </div>
