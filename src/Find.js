@@ -39,8 +39,9 @@ class Find extends Component {
             return (
                 <div>
                     <form>
-                        <select value={'Javy'} onSelect={(event) => this.handleChange(event)}>
-                            {opts}
+                        <select onChangeCapture={(event) => this.handleChange(event)}>
+                            
+                            {"Choose a player"}{opts}
                         </select>
                     </form>  
                     <CardFront playerData={this.state.playerData}/>
@@ -50,8 +51,8 @@ class Find extends Component {
             return (
                 <div>
                     <form>
-                        <select value={'Javier Baez'} onChange={(event) => this.handleChange(event)}>
-                            {opts}
+                        <select onChangeCapture={(event) => this.handleChange(event)}>
+                            {"Choose a player"}{opts}
                         </select>
                     </form>
                     <div>no player chosen</div>
