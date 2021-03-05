@@ -30,12 +30,18 @@ class Find extends Component {
     }
     
     render() {
-        const opts = this.props.players.map(player => {return {value: player.PlayerID, label: player.FanDuelName}})
+        const opts = this.props.players.map(player => {
+            return {value: player.PlayerID, label: player.FanDuelName}})
         if (this.state.playerData.PlayerID) {
             return (
                 <div>
                     <form>
-                        <Select className='select-player' onChange={(event) => this.handleChange(event)} value={this.state.playerID} options={opts}/>
+                        <Select
+                            theme={theme => ({...theme, color: '#4b5a51', borderRadius: 0, colors: {...theme.colors, primary25:'#CC3433'}})}
+                            className='select-player' 
+                            onChange={(event) => this.handleChange(event)} 
+                            value={this.state.playerID} 
+                            options={opts}/>
                     </form>  
                     <CardFront playerData={this.state.playerData}/>
                 </div>
@@ -44,7 +50,12 @@ class Find extends Component {
             return (
                 <div>
                     <form>
-                        <Select className='select-player' onChange={(event) => this.handleChange(event)} value={this.state.playerID} options={opts}/>
+                        <Select 
+                            theme={theme => ({...theme, color: '#4b5a51', borderRadius: 0, colors: {...theme.colors, primary25:'#CC3433'}})}
+                            className='select-player' 
+                            onChange={(event) => this.handleChange(event)} 
+                            value={this.state.playerID} 
+                            options={opts}/>
                     </form>
                     <div>no player chosen</div>
                 </div>

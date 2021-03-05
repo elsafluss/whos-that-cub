@@ -17,19 +17,17 @@ class CardFront extends Component {
                     state: {playerData: this.props.playerData}
                 }}>
                 <div className="card-front">
-                    <p className='card-title'>CUBS</p>
-                    
-                    <img className='player-picture' src={this.props.playerData.PhotoUrl} alt="the player"></img>
-
-                    <h1 className='player-name'>
-                        {`${playerName},   
-                        #${this.props.playerData.Jersey}`}
-                    </h1>
-
+                    <h1 className='card-title'>CUBS</h1>
+                    <div className='player-picture-box'>
+                        <img className='player-picture' src={this.props.playerData.PhotoUrl} alt="the player"></img>
                         <span className='player-position'>
                             {this.props.playerData.Position}
                         </span>
-
+                    </div>
+                    <h2 className='player-name'>
+                        {`${playerName}   
+                        #${this.props.playerData.Jersey}`}
+                    </h2>
                 </div>
             </Link>
         )
