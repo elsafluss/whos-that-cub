@@ -34,3 +34,12 @@
     height: auto;
     z-index: 0;
 }
+
+.card-back-stats-block {
+    display: flex;
+    font-size: 15px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: left;
+    margin: 1em;
+}

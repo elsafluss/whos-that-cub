@@ -76,7 +76,6 @@ class CardBack extends Component {
         }
     }
 
-    // make this one conditional?
     getActionPhoto() {
         return `https://securea.mlb.com/images/players/action_shots/${this.props.chosenPlayer.MLBAMID}.jpg`
     }
@@ -89,14 +88,16 @@ class CardBack extends Component {
                     <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
                     <h3 className="card-back-player-name">{this.getName()}</h3>
                 </div>
-                    <span className="card-back-height">{this.calculateHeight()}</span>
-                    <span className="card-back-batting">{this.getBattingHand()}</span>
-                    <span className="card-back-throwing">{this.getThrowingHand()}</span>
-                    <span className="card-back-birthday">{this.getBirthDay()}</span>
-                    <span className="card-back-high-school">{this.getHighSchool() }</span>
-                    <span className="card-back-college">{this.getCollege()}</span>
-                    <span className="card-back-experience">{this.getExperience()}</span>
-                    <span className="card-back-salary">{this.getSalary()}</span>
+                    <div className="card-back-stats-block">
+                        <div className="card-back-height">{this.calculateHeight()}</div>
+                        <div className="card-back-batting">{this.getBattingHand()}</div>
+                        <div className="card-back-throwing">{this.getThrowingHand()}</div>
+                        <div className="card-back-birthday">{this.getBirthDay()}</div>
+                        <div className="card-back-high-school">{this.getHighSchool() }</div>
+                        <div className="card-back-college">{this.getCollege()}</div>
+                        <div className="card-back-experience">{this.getExperience()}</div>
+                        <div className="card-back-salary">{this.getSalary()}</div>
+                    </div>
                 </div>
             </Link>
         )
