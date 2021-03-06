@@ -42,4 +42,6 @@
     justify-content: space-evenly;
     align-items: left;
     margin: 1em;
+    border-bottom: 5px dotted #cc3433;
+    border-top: 5px dotted #cc3433;
 }
