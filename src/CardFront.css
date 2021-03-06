@@ -47,6 +47,7 @@
 .player-picture {
     height: 281px;
     width: auto;
+    border-radius: 10px;
     z-index: 0;
 }
 

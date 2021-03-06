@@ -2,12 +2,36 @@
     border: 8px solid #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 400px;
     width: 250px;
     margin: auto;
+    position: relative;
+    color:#ffffff;
     padding: 0;
-    background: rgb(182, 53, 63);
-    background: linear-gradient(0deg, rgba(182, 53, 63, 1) 40%, rgba(102, 156, 202, 1) 40%);
+    background: #0E3386;
+}
+
+.card-back-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back-player-name {
+    z-index: 1;
+    position: relative;
+    top: -60px;
+    color: #cc3433;
+    font-size: xx-large;
+    -webkit-text-stroke: .5px black;
+}
+
+.card-back-action-photo {
+    width: 100%;
+    position: relative;
+    height: auto;
+    z-index: 0;
 }

@@ -48,7 +48,7 @@ class CardBack extends Component {
     }
 
     getHighSchool() {
-        return this.props.chosenPlayer.HighSchool !== 'None' ? 
+        return this.props.chosenPlayer.HighSchool !== null ? 
             `High school: ${this.props.chosenPlayer.HighSchool}.` : 
             `No high school listed.`
     }
@@ -63,19 +63,35 @@ class CardBack extends Component {
         return `Has played for ${this.props.chosenPlayer.Experience} years.`
     }
 
+    getSalary() {
+        if(this.props.chosenPlayer.Salary) {
+            return `Making $${this.props.chosenPlayer.Salary.toLocaleString()} this year.`
+        } else {
+            return `Salary not available.`
+        }
+    }
+
+    // make this one conditional
+    getActionPhoto() {
+        return `https://securea.mlb.com/images/players/action_shots/${this.props.chosenPlayer.MLBAMID}.jpg`
+    }
+
     render() {
         console.log(this.props)
         return (
                 <div className="card-back">
-                    <h1 className='card-title'>CUBS</h1>
-                    <h3>{this.getName()}</h3>
+                <div className="card-back-header">
+                    <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
+                    <h3 className="card-back-player-name">{this.getName()}</h3>
+                </div>
                     <p>{this.calculateHeight()}</p>
-                    <p>{this.getBirthDay()}</p>
                     <p>{this.getBattingHand()}</p>
                     <p>{this.getThrowingHand()}</p>
+                    {/* <p>{this.getBirthDay()}</p>
                     <p>{this.getHighSchool() }</p>
                     <p>{this.getCollege()}</p>
                     <p>{this.getExperience()}</p>
+                    <p>{this.getSalary()}</p> */}
                 </div>
         )
     }
