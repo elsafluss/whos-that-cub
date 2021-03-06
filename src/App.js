@@ -51,18 +51,18 @@ class App extends Component {
             players={this.state.activePlayers} 
             setCurrentPlayer={this.setCurrentPlayer} 
             showFrontOrBack={this.showFrontOrBack}
-            showCardSide={this.state.showCardSide}
-            chosenPlayer={this.state.chosenPlayer}
           />
         <Switch>
-          <Route exact path="/" render={() => <CardFront 
-            chosenPlayer={this.state.chosenPlayer} 
-            showFrontOrBack={this.showFrontOrBack}
-            showCardSide={this.state.showCardSide}/> } />
-          <Route path="/back" render={() => <CardBack 
-            chosenPlayer={this.state.chosenPlayer} 
-            showFrontOrBack={this.showFrontOrBack} 
-            showCardSide={this.state.showCardSide}/> } />
+          <Route exact path="/" render={() => 
+            <CardFront 
+              chosenPlayer={this.state.chosenPlayer} 
+              showFrontOrBack={this.showFrontOrBack}
+              showCardSide={this.state.showCardSide}/> } />
+          <Route path="/back" render={() => 
+            <CardBack 
+              chosenPlayer={this.state.chosenPlayer} 
+              showFrontOrBack={this.showFrontOrBack} 
+              showCardSide={this.state.showCardSide}/> } />
           <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>
       </div>
