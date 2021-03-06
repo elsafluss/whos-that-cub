@@ -8,15 +8,13 @@ class CardFront extends Component {
         this.state = {}
     }
 
-
     render() {
+        console.log(this.props)
+        const pictureID = this.props.playerData.MLBAMID
         const playerName = this.props.playerData.FanDuelName.toUpperCase()
         return (
-            <Link to={{
-                    pathname: '/back',
-                    state: {playerData: this.props.playerData}
-                }}>
-                <div className="card-front">
+            <Link to='/back'>
+                <div className="card-front" onClick={this.props.toggleCardShowing}>
                     <h1 className='card-title'>CUBS</h1>
                     <div className='player-picture-box'>
                         <img className='player-picture' src={this.props.playerData.PhotoUrl} alt="the player"></img>

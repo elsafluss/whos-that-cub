@@ -4,13 +4,16 @@ import Find from './Find'
 import CardBack from './CardBack'
 import { getAllCubsPlayers, online } from './Utility';
 import { Route, Switch } from 'react-router-dom';
+import CardFront from './CardFront';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       allPlayers: [],
-      activePlayers: []
+      activePlayers: [],
+      chosenPlayer: {},
+      showFront: false
     }
   }
 
@@ -26,6 +29,14 @@ class App extends Component {
     }
   }
   
+  toggleCardShowing = () => {
+    this.setState({ showFront: !this.state.showFront})
+  }
+
+  setCurrentPlayer = (chosenPlayer) => {
+    this.setState({ chosenPlayer: chosenPlayer})
+  }
+
   getActivePlayers(players) {
     const activePlayers = players.filter(player => player.Status === 'Active')
     this.setState({ activePlayers: activePlayers })
@@ -36,9 +47,15 @@ class App extends Component {
     return (
       <div className="app">
         <header className="header">WHO'S THAT CUB?</header>
-          <Find players={this.state.activePlayers} />
+          <Find 
+            players={this.state.activePlayers} 
+            setCurrentPlayer={this.setCurrentPlayer} 
+            toggleCardShowing={this.toggleCardShowing}
+            showFront={this.state.showFront}
+          />
         <Switch>
           <Route exact path="/" /> 
+          <Route path="/front" render={() => <CardFront chosenPlayer={this.state.chosenPlayer} /> } />
           <Route path="/back" component={ CardBack } /> 
           <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>
