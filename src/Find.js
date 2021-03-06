@@ -1,60 +1,46 @@
 import React, { Component } from 'react'
-import CardFront from './CardFront'
-// import onePlayer from './SinglePlayerData.json'
-// import allPlayers from './WholeTeamData.json'
+import Select from 'react-select'
 import './Find.css'
 
 class Find extends Component {
     constructor() {
         super()
         this.state = {
-            playerData: {}
+            chosenPlayer: {},
+            playerID: null
         }
     }
 
     handleChange = (event) => {
-        this.setState({ playerName: event.target.value })
+        this.props.showFrontOrBack('front')
+        this.setState({ playerID: event.value })
+        const chosenPlayer = this.getSinglePlayerData(event)
+        this.props.setCurrentPlayer(chosenPlayer)
     }
     
-    handleClick = (event) => {
-        event.preventDefault()
-        this.getSinglePlayerData()
-    }
-
-    componentDidMount() {
-
-    }
-    
-    getSinglePlayerData = () => {
-        const lastName = this.state.playerName.split(',')
-        const thisPlayer = this.props.players.find(player => player.LastName === lastName[0])
-        this.setState({ playerData: thisPlayer })
+    getSinglePlayerData(event) {
+        const chosenPlayer = this.props.players.find(player => {
+            return player.PlayerID === Number(event.value)
+        })
+        this.setState({ chosenPlayer: chosenPlayer })
+        return chosenPlayer
     }
     
     render() {
-        // move the "get player's name" function to App, pass the returned value down
-
-        const opts = this.props.players.map((player, index) => {
-            this.props.setPlayersName()
-            const playerID = `${player.PlayerID}`
-            const fullName = this.props.players[index].name
-            return (
-                <option value={fullName} key={playerID} id={player.PlayerID}>{fullName}</option>
-            )
+        const opts = this.props.players.map(player => {
+            return {value: player.PlayerID, label: player.FanDuelName}
         })
-
         return (
             <div>
                 <form>
-                    <select 
-                        value={this.state.playerName} 
-                        id="select-player" 
-                        onChange={this.handleChange}>
-                        {opts}
-                    </select>
-                    <button onClick={this.handleClick}>show this player</button>
-                </form>
-                {this.state.playerName && <CardFront playerName={this.state.playerName} playerData={this.state.playerData}/>}
+                    <Select
+                        theme={theme => ({...theme, color: '#4b5a51', borderRadius: 0, colors: {...theme.colors, primary25:'#CC3433'}})}
+                        className='select-player' 
+                        onChange={(event) => this.handleChange(event)} 
+                        value={this.state.playerID} 
+                        options={opts}
+                    />
+                </form>  
             </div>
         )
     }

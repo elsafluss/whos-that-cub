@@ -1,0 +1,36 @@
+.card-back {
+    border: 8px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 400px;
+    width: 250px;
+    margin: auto;
+    position: relative;
+    color:#ffffff;
+    padding: 0;
+    background: #0E3386;
+}
+
+.card-back-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back-player-name {
+    z-index: 2;
+    position: absolute;
+    color: #ffffff;
+    font-size: 1.5em;
+    -webkit-text-stroke: .5px #cc3433;
+}
+
+.card-back-action-photo {
+    width: 100%;
+    position: relative;
+    height: auto;
+    z-index: 0;
+}

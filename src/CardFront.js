@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import './CardFront.css'
 
 class CardFront extends Component {
     constructor() {
@@ -6,24 +8,35 @@ class CardFront extends Component {
         this.state = {}
     }
 
-    render() {
-        // console.log(this.props)
-            return (
-                <div>
-                    <p>
-                        {this.props.playerData.FirstName} {this.props.playerData.LastName}
-                    </p>
-                    <p>
-                        {this.props.playerData.Jersey}
-                    </p>
-                    <p>
-                        {this.props.playerData.Position}
-                    </p>
-                    <img src={this.props.playerData.PhotoUrl} alt="the player"></img>
-                </div>
-            )
-        } 
+    setName() {
+        return this.props.chosenPlayer.FanDuelName.toUpperCase()
     }
 
+    setPictureID() {
+        return this.props.chosenPlayer.MLBAMID
+    }
+
+    render() {
+        return (
+            <Link to='/back'>
+                <div className="card-front" onClick={() => this.props.showFrontOrBack('back')}>
+                    <h1 className='card-title'>CUBS</h1>
+                    <div className='player-picture-box'>
+                        <img className='player-picture' 
+                            src={`https://securea.mlb.com/mlb/images/players/head_shot/${this.setPictureID()}.jpg`} 
+                            alt="the player"></img>
+                        <span className='player-position'>
+                            {this.props.chosenPlayer.Position}
+                        </span>
+                    </div>
+                    <h2 className='player-name'>
+                        {`${this.setName()}   
+                        #${this.props.chosenPlayer.Jersey}`}
+                    </h2>
+                </div>
+            </Link>
+        )
+    }
+}
 
 export default CardFront

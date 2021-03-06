@@ -1,0 +1,67 @@
+.card-front {
+    border: 8px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 250px;
+    margin: auto;
+    padding: 0;
+    background: rgb(182, 53, 63);
+    background: linear-gradient(0deg, rgba(182, 53, 63, 1) 40%, rgba(102, 156, 202, 1) 40%);
+}
+
+.card-title {
+    color: #cc3433;
+    font-family: 'Raleway',
+        sans-serif;
+    font-size: 50px;
+    text-shadow: 10px 6px #000000,
+        2px 5px #000000;
+    font-weight: 900;
+    text-align: center;
+    margin: 5px 0 -15px 0;
+    padding: 0;
+    -webkit-text-stroke: 1px black;
+    transform: scaleX(1.3);
+}
+
+.player-name {
+    color:#ffffff;
+    font-size: larger;
+    margin: 0;
+    text-align: center;
+}
+
+.player-picture-box {
+    height: 280px;
+    width: auto;
+    margin: auto;
+    border: 4px solid white;
+    border-radius: 15px;
+    background-color: #4b5a51;
+    position: relative;
+}
+
+.player-picture {
+    height: 281px;
+    width: auto;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.player-position {
+    border-radius: 50%;
+    position:absolute;
+    right: 0px;
+    bottom: -15px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    box-shadow: 5px 3px #000000;
+    z-index: 1;
+}

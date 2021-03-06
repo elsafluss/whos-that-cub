@@ -1,21 +1,21 @@
 import './App.css';
 import React, { Component } from 'react'
 import Find from './Find'
-import CardFront from './CardFront'
+import favoritePlayer from './SinglePlayerData.json'
+import CardBack from './CardBack'
 import { getAllCubsPlayers, online } from './Utility';
 import { Route, Switch } from 'react-router-dom';
-import favoritePlayer from './SinglePlayerData.json'
-
+import CardFront from './CardFront';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       allPlayers: [],
-      activePlayers: []
+      activePlayers: [],
+      chosenPlayer: favoritePlayer,
+      showCardSide: 'front'
     }
-    this.setPlayersName = this.setPlayersName.bind(this)
-
   }
 
   // to turn on/off the API call, toggle 'online' const in Utility
@@ -29,30 +29,41 @@ class App extends Component {
       this.getActivePlayers(allPlayers)
     }
   }
-  
+
+  showFrontOrBack = (sideToShow) => {
+      this.setState({ showCardSide: sideToShow})
+  }
+
+  setCurrentPlayer = (chosenPlayer) => {
+    this.setState({ chosenPlayer: chosenPlayer })
+  }
+
   getActivePlayers(players) {
     const activePlayers = players.filter(player => player.Status === 'Active')
     this.setState({ activePlayers: activePlayers })
-  }
-
-  setPlayersName() {
-    this.state.activePlayers.map(player => {
-      const fullName = `${player.LastName}, ${player.FirstName}`
-      player.name = fullName
-      return fullName
-    })
   }
 
   render() {
     return (
       <div className="app">
         <header className="header">WHO'S THAT CUB?</header>
-        <Find players={this.state.activePlayers} setPlayersName={this.setPlayersName}/>
+          <Find 
+            players={this.state.activePlayers} 
+            setCurrentPlayer={this.setCurrentPlayer} 
+            showFrontOrBack={this.showFrontOrBack}
+            showCardSide={this.state.showCardSide}
+            chosenPlayer={this.state.chosenPlayer}
+          />
         <Switch>
-          <Route exact path="/" render={() => <CardFront playerData={favoritePlayer} />} /> 
-          <Route path="/:{playerName}" /> if :playerName, render cardfront of that player
-          <Route path="/:{playerName}/back" /> :playerName/back, render cardback of that player
-          <Route path="/*" /> same as "/"
+          <Route exact path="/" render={() => <CardFront 
+            chosenPlayer={this.state.chosenPlayer} 
+            showFrontOrBack={this.showFrontOrBack}
+            showCardSide={this.state.showCardSide}/> } />
+          <Route path="/back" render={() => <CardBack 
+            chosenPlayer={this.state.chosenPlayer} 
+            showFrontOrBack={this.showFrontOrBack} 
+            showCardSide={this.state.showCardSide}/> } />
+          <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>
       </div>
     )
