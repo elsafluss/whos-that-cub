@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './CardBack.css'
 
 class CardBack extends Component {
     constructor() {
         super()
         this.state = {}
+    }
+
+    componentDidMount() {
+        this.props.showFrontOrBack('back')
     }
 
     calculateHeight() {
@@ -71,13 +76,14 @@ class CardBack extends Component {
         }
     }
 
-    // make this one conditional
+    // make this one conditional?
     getActionPhoto() {
         return `https://securea.mlb.com/images/players/action_shots/${this.props.chosenPlayer.MLBAMID}.jpg`
     }
 
     render() {
         return (
+            <Link to='/'>
                 <div className="card-back">
                 <div className="card-back-header">
                     <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
@@ -86,12 +92,13 @@ class CardBack extends Component {
                     <p>{this.calculateHeight()}</p>
                     <p>{this.getBattingHand()}</p>
                     <p>{this.getThrowingHand()}</p>
-                    {/* <p>{this.getBirthDay()}</p>
+                    <p>{this.getBirthDay()}</p>
                     <p>{this.getHighSchool() }</p>
                     <p>{this.getCollege()}</p>
                     <p>{this.getExperience()}</p>
-                    <p>{this.getSalary()}</p> */}
+                    <p>{this.getSalary()}</p>
                 </div>
+            </Link>
         )
     }
 }

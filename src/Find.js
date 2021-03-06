@@ -1,30 +1,29 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
-import CardFront from './CardFront'
 import './Find.css'
 
 class Find extends Component {
     constructor() {
         super()
         this.state = {
-            playerData: {},
+            chosenPlayer: {},
             playerID: null
         }
     }
 
     handleChange = (event) => {
-        this.setState({ playerID: event.value })
-        const currentPlayer = this.getSinglePlayerData(event)
-        this.props.setCurrentPlayer(currentPlayer)
         this.props.showFrontOrBack('front')
+        this.setState({ playerID: event.value })
+        const chosenPlayer = this.getSinglePlayerData(event)
+        this.props.setCurrentPlayer(chosenPlayer)
     }
     
     getSinglePlayerData(event) {
-        const currentPlayer = this.props.players.find(player => {
+        const chosenPlayer = this.props.players.find(player => {
             return player.PlayerID === Number(event.value)
         })
-        this.setState({ playerData: currentPlayer })
-        return currentPlayer
+        this.setState({ chosenPlayer: chosenPlayer })
+        return chosenPlayer
     }
     
     render() {
@@ -42,11 +41,6 @@ class Find extends Component {
                         options={opts}
                     />
                 </form>  
-                {this.props.showCardSide === 'front' &&
-                    <CardFront 
-                        playerData={this.state.playerData} 
-                        showFrontOrBack={this.props.showFrontOrBack}
-                        showCardSide={this.props.showCardSide}/>}
             </div>
         )
     }

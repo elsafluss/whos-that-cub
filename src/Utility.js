@@ -10,7 +10,4 @@ export function getAllCubsPlayers() {
     }
 }
 
-// do i care that i'm sending around a bunch of data that i don't care about?
-// like XmlTeamPlayerID?
-
 // ping action photo in a fetch for a status and if it's 404, then show either wrigley or the baseballs

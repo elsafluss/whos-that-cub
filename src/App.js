@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Component } from 'react'
 import Find from './Find'
+import favoritePlayer from './SinglePlayerData.json'
 import CardBack from './CardBack'
 import { getAllCubsPlayers, online } from './Utility';
 import { Route, Switch } from 'react-router-dom';
@@ -12,7 +13,7 @@ class App extends Component {
     this.state = {
       allPlayers: [],
       activePlayers: [],
-      chosenPlayer: {},
+      chosenPlayer: favoritePlayer,
       showCardSide: 'front'
     }
   }
@@ -28,13 +29,13 @@ class App extends Component {
       this.getActivePlayers(allPlayers)
     }
   }
-  
+
   showFrontOrBack = (sideToShow) => {
       this.setState({ showCardSide: sideToShow})
   }
 
   setCurrentPlayer = (chosenPlayer) => {
-    this.setState({ chosenPlayer: chosenPlayer})
+    this.setState({ chosenPlayer: chosenPlayer })
   }
 
   getActivePlayers(players) {
@@ -51,11 +52,17 @@ class App extends Component {
             setCurrentPlayer={this.setCurrentPlayer} 
             showFrontOrBack={this.showFrontOrBack}
             showCardSide={this.state.showCardSide}
+            chosenPlayer={this.state.chosenPlayer}
           />
         <Switch>
-          <Route exact path="/" /> 
-          <Route path="/front" render={() => <CardFront chosenPlayer={this.state.chosenPlayer} /> } />
-          <Route path="/back" render={() => <CardBack chosenPlayer={this.state.chosenPlayer} /> } />
+          <Route exact path="/" render={() => <CardFront 
+            chosenPlayer={this.state.chosenPlayer} 
+            showFrontOrBack={this.showFrontOrBack}
+            showCardSide={this.state.showCardSide}/> } />
+          <Route path="/back" render={() => <CardBack 
+            chosenPlayer={this.state.chosenPlayer} 
+            showFrontOrBack={this.showFrontOrBack} 
+            showCardSide={this.state.showCardSide}/> } />
           <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>
       </div>
