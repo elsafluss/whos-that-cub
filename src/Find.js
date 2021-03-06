@@ -16,7 +16,7 @@ class Find extends Component {
         this.setState({ playerID: event.value })
         const currentPlayer = this.getSinglePlayerData(event)
         this.props.setCurrentPlayer(currentPlayer)
-        this.props.toggleCardShowing()
+        this.props.showFrontOrBack('front')
     }
     
     getSinglePlayerData(event) {
@@ -42,11 +42,11 @@ class Find extends Component {
                         options={opts}
                     />
                 </form>  
-                {this.props.showFront &&
+                {this.props.showCardSide === 'front' &&
                     <CardFront 
                         playerData={this.state.playerData} 
-                        toggleCardShowing={this.props.toggleCardShowing}
-                        showFront={this.state.showFront}/>}
+                        showFrontOrBack={this.props.showFrontOrBack}
+                        showCardSide={this.props.showCardSide}/>}
             </div>
         )
     }

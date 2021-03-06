@@ -77,7 +77,6 @@ class CardBack extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
                 <div className="card-back">
                 <div className="card-back-header">

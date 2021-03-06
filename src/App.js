@@ -13,7 +13,7 @@ class App extends Component {
       allPlayers: [],
       activePlayers: [],
       chosenPlayer: {},
-      showFront: false
+      showCardSide: 'front'
     }
   }
 
@@ -29,8 +29,8 @@ class App extends Component {
     }
   }
   
-  toggleCardShowing = () => {
-    this.setState({ showFront: !this.state.showFront})
+  showFrontOrBack = (sideToShow) => {
+      this.setState({ showCardSide: sideToShow})
   }
 
   setCurrentPlayer = (chosenPlayer) => {
@@ -43,15 +43,14 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="app">
         <header className="header">WHO'S THAT CUB?</header>
           <Find 
             players={this.state.activePlayers} 
             setCurrentPlayer={this.setCurrentPlayer} 
-            toggleCardShowing={this.toggleCardShowing}
-            showFront={this.state.showFront}
+            showFrontOrBack={this.showFrontOrBack}
+            showCardSide={this.state.showCardSide}
           />
         <Switch>
           <Route exact path="/" /> 

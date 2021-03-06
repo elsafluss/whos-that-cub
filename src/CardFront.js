@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import favoritePlayer from './SinglePlayerData.json'
 import './CardFront.css'
 
 class CardFront extends Component {
@@ -9,8 +10,12 @@ class CardFront extends Component {
     }
 
     render() {
-        const pictureID = this.props.playerData.MLBAMID
-        const playerName = this.props.playerData.FanDuelName.toUpperCase()
+        let currentPlayer = this.props.playerData
+        if(!currentPlayer.MLBAMID) {
+            currentPlayer = favoritePlayer
+        }
+        const pictureID = currentPlayer.MLBAMID
+        const playerName = currentPlayer.FanDuelName.toUpperCase()
         return (
             <Link to='/back'>
                 <div className="card-front" onClick={this.props.toggleCardShowing}>
@@ -18,12 +23,12 @@ class CardFront extends Component {
                     <div className='player-picture-box'>
                         <img className='player-picture' src={`https://securea.mlb.com/mlb/images/players/head_shot/${pictureID}.jpg`} alt="the player"></img>
                         <span className='player-position'>
-                            {this.props.playerData.Position}
+                            {currentPlayer.Position}
                         </span>
                     </div>
                     <h2 className='player-name'>
                         {`${playerName}   
-                        #${this.props.playerData.Jersey}`}
+                        #${currentPlayer.Jersey}`}
                     </h2>
                 </div>
             </Link>
