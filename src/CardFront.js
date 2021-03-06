@@ -9,7 +9,6 @@ class CardFront extends Component {
     }
 
     render() {
-        console.log(this.props)
         const pictureID = this.props.playerData.MLBAMID
         const playerName = this.props.playerData.FanDuelName.toUpperCase()
         return (
@@ -17,7 +16,7 @@ class CardFront extends Component {
                 <div className="card-front" onClick={this.props.toggleCardShowing}>
                     <h1 className='card-title'>CUBS</h1>
                     <div className='player-picture-box'>
-                        <img className='player-picture' src={this.props.playerData.PhotoUrl} alt="the player"></img>
+                        <img className='player-picture' src={`https://securea.mlb.com/mlb/images/players/head_shot/${pictureID}.jpg`} alt="the player"></img>
                         <span className='player-position'>
                             {this.props.playerData.Position}
                         </span>

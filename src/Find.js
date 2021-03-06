@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
 import Select from 'react-select'
 import CardFront from './CardFront'
-// import { Link } from 'react-router-dom'
-// import onePlayer from './SinglePlayerData.json'
-// import allPlayers from './WholeTeamData.json'
 import './Find.css'
 
 class Find extends Component {
@@ -20,11 +16,6 @@ class Find extends Component {
         this.setState({ playerID: event.value })
         const currentPlayer = this.getSinglePlayerData(event)
         this.props.setCurrentPlayer(currentPlayer)
-        // this.setState({ frontOfCardShowing: true})
-        // move frontofcardshowing to app, pass down func togglecardview
-        // showFront: false ... toggle to true when player is chosen
-        // toggle to false when card is clicked
-        // SHOW THE FRONT OF THE CARD, YOU COWARD
         this.props.toggleCardShowing()
     }
     
@@ -51,12 +42,11 @@ class Find extends Component {
                         options={opts}
                     />
                 </form>  
-                {this.props.showFront ? 
+                {this.props.showFront &&
                     <CardFront 
                         playerData={this.state.playerData} 
                         toggleCardShowing={this.props.toggleCardShowing}
-                        showFront={this.state.showFront}/> : 
-                    <div>no player chosen</div>}
+                        showFront={this.state.showFront}/>}
             </div>
         )
     }

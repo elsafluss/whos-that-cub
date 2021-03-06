@@ -56,7 +56,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" /> 
           <Route path="/front" render={() => <CardFront chosenPlayer={this.state.chosenPlayer} /> } />
-          <Route path="/back" component={ CardBack } /> 
+          <Route path="/back" render={() => <CardBack chosenPlayer={this.state.chosenPlayer} /> } />
           <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>
       </div>

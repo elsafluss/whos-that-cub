@@ -1,0 +1,13 @@
+.card-back {
+    border: 8px solid #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 250px;
+    margin: auto;
+    padding: 0;
+    background: rgb(182, 53, 63);
+    background: linear-gradient(0deg, rgba(182, 53, 63, 1) 40%, rgba(102, 156, 202, 1) 40%);
+}
