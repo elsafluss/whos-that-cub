@@ -16,35 +16,35 @@ class CardBack extends Component {
         const height = this.props.chosenPlayer.Height
         const feet = Math.floor(height / 12)
         const inches = (height - (feet * 12))
-        const heightWeight = `${feet}' ${inches}", ${this.props.chosenPlayer.Weight}lbs`
+        const heightWeight = `He is ${feet}' ${inches}" tall and weighs ${this.props.chosenPlayer.Weight}lbs`
         return heightWeight
     }
     
     getBattingHand() {
         if(this.props.chosenPlayer.BatHand === "R") {
-            return `Bats right-handed.`
+            return `He bats right-handed.`
         } else if (this.props.chosenPlayer.BatHand === "L") {
-            return `Bats left-handed.`
+            return `He bats left-handed.`
         } else {
-            return `Is a switch-hitter.`
+            return `He is a switch-hitter.`
         }
     }
 
     getThrowingHand() {
         if(this.props.chosenPlayer.ThrowHand === "R") {
-            return  `Throws right-handed.`
+            return  `He throws right-handed.`
         } else if (this.props.chosenPlayer.ThrowHand === "L") {
-            return  `Throws left-handed.`
+            return  `He throws left-handed.`
         } else {
-            return `Pitches with both hands.`
+            return `He pitches from both sides.`
         }
     }
 
     getBirthDay() {
         if (this.props.chosenPlayer.BirthState === null) {
-            return `Was born in ${this.props.chosenPlayer.BirthCity}, ${this.props.chosenPlayer.BirthCountry} on ${new Date(this.props.chosenPlayer.BirthDate).toLocaleString().split(',')[0]}.`
+            return `He was born in ${this.props.chosenPlayer.BirthCity}, ${this.props.chosenPlayer.BirthCountry} on ${new Date(this.props.chosenPlayer.BirthDate).toLocaleString().split(',')[0]}.`
         } else {
-            return `Was born in ${this.props.chosenPlayer.BirthCity}, ${this.props.chosenPlayer.BirthState} ${this.props.chosenPlayer.BirthCountry} on ${new Date(this.props.chosenPlayer.BirthDate).toLocaleString().split(',')[0]}.`
+            return `He was born in ${this.props.chosenPlayer.BirthCity}, ${this.props.chosenPlayer.BirthState} ${this.props.chosenPlayer.BirthCountry} on ${new Date(this.props.chosenPlayer.BirthDate).toLocaleString().split(',')[0]}.`
         }
     }
 
@@ -65,18 +65,17 @@ class CardBack extends Component {
     }
 
     getExperience() {
-        return `Has played for ${this.props.chosenPlayer.Experience} years.`
+        return `He has played in the majors for ${this.props.chosenPlayer.Experience} years.`
     }
 
     getSalary() {
         if(this.props.chosenPlayer.Salary) {
-            return `Making $${this.props.chosenPlayer.Salary.toLocaleString()} this year.`
+            return `He is making $${this.props.chosenPlayer.Salary.toLocaleString()} this year.`
         } else {
-            return `Salary not available.`
+            return `His salary was not available.`
         }
     }
 
-    // make this one conditional?
     getActionPhoto() {
         return `https://securea.mlb.com/images/players/action_shots/${this.props.chosenPlayer.MLBAMID}.jpg`
     }
@@ -89,14 +88,16 @@ class CardBack extends Component {
                     <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
                     <h3 className="card-back-player-name">{this.getName()}</h3>
                 </div>
-                    <p>{this.calculateHeight()}</p>
-                    <p>{this.getBattingHand()}</p>
-                    <p>{this.getThrowingHand()}</p>
-                    <p>{this.getBirthDay()}</p>
-                    <p>{this.getHighSchool() }</p>
-                    <p>{this.getCollege()}</p>
-                    <p>{this.getExperience()}</p>
-                    <p>{this.getSalary()}</p>
+                    <div className="card-back-stats-block">
+                        <div className="card-back-height">{this.calculateHeight()}</div>
+                        <div className="card-back-batting">{this.getBattingHand()}</div>
+                        <div className="card-back-throwing">{this.getThrowingHand()}</div>
+                        <div className="card-back-birthday">{this.getBirthDay()}</div>
+                        <div className="card-back-high-school">{this.getHighSchool() }</div>
+                        <div className="card-back-college">{this.getCollege()}</div>
+                        <div className="card-back-experience">{this.getExperience()}</div>
+                        <div className="card-back-salary">{this.getSalary()}</div>
+                    </div>
                 </div>
             </Link>
         )
