@@ -20,3 +20,14 @@
   border-radius: 5px;
   padding: .5em 1em;
 }
+
+.favorite-button {
+  margin: 1em;
+  position: absolute;
+  bottom: 1em;
+  font-size: large;
+  border-radius: 5px;
+  color: #0E3386;
+  background-color: #ffffff;
+  padding: .5em 1em;
+}

@@ -47,11 +47,12 @@ class App extends Component {
     return (
       <div className="app">
         <Link to="/" className="header">WHO'S THAT CUB?</Link>
-          <Find 
-            players={this.state.activePlayers} 
-            setCurrentPlayer={this.setCurrentPlayer} 
-            showFrontOrBack={this.showFrontOrBack}
-          />
+        <Find 
+          players={this.state.activePlayers} 
+          setCurrentPlayer={this.setCurrentPlayer} 
+          showFrontOrBack={this.showFrontOrBack}
+        />
+        <button className="favorite-button">this one is my favorite</button>
         <Switch>
           <Route exact path="/" render={() => 
             <CardFront 
