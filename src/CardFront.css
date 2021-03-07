@@ -7,8 +7,8 @@
     height: 400px;
     width: 250px;
     margin: auto;
-    box-shadow: 4px 5px 5px black,
-        -1px -1px 2px black;
+    box-shadow: 4px 5px 5px #000000,
+        -1px -1px 2px #000000;
     border-radius: 1px;
     position: relative;
     padding: 0;
@@ -32,7 +32,7 @@
 }
 
 .player-name {
-    color:#ffffff;
+    color: #ffffff;
     font-size: larger;
     margin: 0;
     text-align: center;

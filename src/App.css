@@ -3,6 +3,7 @@
 #CC3433
 #ffffff
 #4b5a51 
+#000000
 card width: 270px
 card height: 420px
 */
@@ -22,6 +23,7 @@ card height: 420px
   font-size: x-large;
   width: 230px;
   height: 35px;
+  box-shadow: 2px 3px 3px #000000;
   font-weight: 900;
   letter-spacing: 2px;
   text-align: center;
@@ -37,6 +39,7 @@ card height: 420px
   position: relative;
   font-size: large;
   border-radius: 5px;
+  box-shadow: 2px 3px 3px #000000;
   color: #0E3386;
   background-color: #ffffff;
   padding: .5em 1em;
@@ -45,8 +48,8 @@ card height: 420px
 
 .make-favorite-button:hover,
 .show-favorite-button:hover {
-    background-color: #0E3386;
-    color: #ffffff;
+  background-color: #0E3386;
+  color: #ffffff;
 }
 
 .make-favorite-button:active,
