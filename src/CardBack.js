@@ -6,9 +6,7 @@ import headerPhoto from './action-default-photo.jpeg'
 class CardBack extends Component {
     constructor() {
         super()
-        this.state = {
-            headerPhoto: './action-default-photo.jpeg'
-        }
+        this.state = {}
     }
 
     componentDidMount() {
