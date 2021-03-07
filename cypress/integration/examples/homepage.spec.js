@@ -4,18 +4,18 @@ context('HOME PAGE', () => {
     cy.visit('http://localhost:3000')
   })
 
-  it('should display the header.', () => {
+  it('should display the header', () => {
     cy.get('.header')
       .should('exist')
       .contains('WHO\'S THAT CUB?')
   })
 
-  it('should display the select menu.', () => {
+  it('should display the select menu', () => {
     cy.get('.select-player')
       .should('exist')
   })
 
-  it('should display the player card front.', () => {
+  it('should display the player card front', () => {
     cy.get('a[class=card-front]')
       .should('exist')
       .get('h1[class=card-title]')
@@ -27,6 +27,8 @@ context('HOME PAGE', () => {
       .should('exist')
       .get('img[class=player-picture]')
       .should('exist')    
+      .get('img[class=player-favorited]')  
+      .should('exist')    
       .get('div[class=player-position]')
       .should('exist')
       .get('span[class=position-letters]')
@@ -37,7 +39,7 @@ context('HOME PAGE', () => {
       .should('exist')
   })
 
-  it('should display favorites buttons.', () => {
+  it('should display favorites buttons', () => {
     cy.get('.make-favorite-button')
       .should('exist')
       .contains('this one is my favorite')
@@ -52,7 +54,7 @@ context('SELECT A PLAYER', () => {
     cy.visit('http://localhost:3000')
   })
 
-  it('should display the chosen player.', () => {
+  it('should display the chosen player', () => {
     cy.get('img[class=player-picture]')
       .should('be.visible')    
       .get('span[class=position-letters]')
@@ -65,7 +67,7 @@ context('SELECT A PLAYER', () => {
       .type('Kris Bryant {enter}')
 
     cy.get('img[class=player-picture]')
-      .should('be.visible')    
+      .should('be.visible')  
       .get('span[class=position-letters]')
       .contains('3B')
       .should('exist')
@@ -79,7 +81,7 @@ context('VIEW THE PLAYER\'S STATS', () => {
     cy.visit('http://localhost:3000')
   })
 
-  it('should display the back of the chosen player card.', () => {
+  it('should display the back of the chosen player card', () => {
     cy.get('img[class=player-picture]')
       .click()
       .get('div[class=card-back-header]')
@@ -119,11 +121,33 @@ context('VIEW THE PLAYER\'S STATS', () => {
   })
 })
 
-// context('FAVORITE A PLAYER', () => {
-//   beforeEach(() => {
-//     cy.visit('http://localhost:3000')
-//   })
+context('FAVORITE A PLAYER', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000')
+  })
 
-//   it('should display the back of the chosen player card.', () => {
-//   })
-// })
+  it('should add the favorite icon only to the favorite player', () => {
+    cy.get('img[class=player-favorited]')  
+      .should('be.visible')    
+    cy.get('div[class=player-footer]')  
+      .should('exist')
+    
+    cy.get('.select-player')
+      .type('Anthony Rizzo {enter}')
+    cy.get('img[class=player-favorited]')
+      .should('not.exist')
+
+    cy.get('.make-favorite-button')
+      .click()
+
+    cy.get('img[class=player-favorited]')  
+      .should('be.visible')    
+    cy.get('div[class=player-footer]')  
+      .should('exist')
+
+    cy.get('.select-player')
+      .type('Javier Baez {enter}')
+    cy.get('img[class=player-favorited]')
+      .should('not.exist')
+  })
+})
