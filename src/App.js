@@ -16,7 +16,7 @@ class App extends Component {
       chosenPlayer: favoritePlayer,
       showCardSide: 'front',
       favoritePlayerID: null,
-      favoritePlayer: {}
+      favoritePlayer: favoritePlayer
     }
   }
 
@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   showFrontOrBack = (sideToShow) => {
-      this.setState({ showCardSide: sideToShow})
+    this.setState({ showCardSide: sideToShow})
   }
 
   setCurrentPlayer = (chosenPlayer) => {
@@ -76,7 +76,9 @@ class App extends Component {
             <CardFront 
               chosenPlayer={this.state.chosenPlayer} 
               showFrontOrBack={this.showFrontOrBack}
-              showCardSide={this.state.showCardSide}/> } />
+              showCardSide={this.state.showCardSide}
+              favoritePlayer={this.state.favoritePlayer}
+              /> } />
           <Route path="/back" render={() => 
             <CardBack 
               chosenPlayer={this.state.chosenPlayer} 

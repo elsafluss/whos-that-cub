@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './CardFront.css'
 import baseball from './baseball.png'
+import favorited from './favorited.png'
 
 class CardFront extends Component {
     constructor() {
         super()
-        this.state = {}
+        this.state = {
+            isFavorite: false
+        }
     }
 
     setName() {
@@ -15,6 +18,11 @@ class CardFront extends Component {
 
     setPictureID() {
         return this.props.chosenPlayer.MLBAMID
+    }
+
+    isFavorite() {
+        const favorited = this.props.chosenPlayer.PlayerID === this.props.favoritePlayer.PlayerID
+        return favorited
     }
 
     render() {
@@ -28,11 +36,17 @@ class CardFront extends Component {
                     <img className='player-picture' 
                         src={`https://securea.mlb.com/mlb/images/players/head_shot/${this.setPictureID()}.jpg`} 
                         alt="the player"></img>
-                    <div className='player-position'>
-                        <span className='position-letters'>
-                            {this.props.chosenPlayer.Position}
-                        </span>
-                        <img className="position-baseball" src={baseball} alt="a baseball"/>
+                    <div className='player-footer'>
+                        {this.isFavorite() && <img 
+                            src={favorited} 
+                            alt='the Cubs bear logo' 
+                            className='player-favorited'/>}
+                        <div className='player-position'>
+                            <span className='position-letters'>
+                                {this.props.chosenPlayer.Position}
+                            </span>
+                            <img className="position-baseball" src={baseball} alt="a baseball"/>
+                        </div>
                     </div>
                 </div>
                 <h2 className='player-name'>

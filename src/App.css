@@ -31,6 +31,19 @@
   color: #0E3386;
   background-color: #ffffff;
   padding: .5em 1em;
+  cursor: pointer;
+}
+
+.make-favorite-button:hover,
+.show-favorite-button:hover {
+    background-color: #0E3386;
+    color: #ffffff;
+}
+
+.make-favorite-button:active,
+.show-favorite-button:active {
+  background-color: #CC3433;
+  color: #ffffff;
 }
 
 .show-favorite-button {
