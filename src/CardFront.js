@@ -24,6 +24,7 @@ class CardFront extends Component {
                 onClick={() => this.props.showFrontOrBack('back')}>
                 <h1 className='card-title'>CUBS</h1>
                 <div className='player-picture-box'>
+                    <div className='squish'></div>
                     <img className='player-picture' 
                         src={`https://securea.mlb.com/mlb/images/players/head_shot/${this.setPictureID()}.jpg`} 
                         alt="the player"></img>

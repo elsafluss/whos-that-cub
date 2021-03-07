@@ -41,7 +41,11 @@
 
 .player-picture-box {
     height: 280px;
-    width: auto;
+    width: 187px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: auto;
     border: 4px solid white;
     border-radius: 15px;
@@ -56,6 +60,25 @@
     z-index: 0;
 }
 
+.squish {
+    animation: 1s infinite alternate squish;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    top: 50px;
+}
+
+@keyframes squish {
+    from {
+        width: 50px;
+        height: 50px;
+    }
+
+    to {
+        width: 150px;
+        height: 150px;
+    }
+}
 .player-position {
     border-radius: 50%;
     position: absolute;
