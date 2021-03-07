@@ -1,6 +1,6 @@
 .select-player {
-    width: 250px;
+    box-shadow: 2px 3px 3px #000000;
     margin: 1em;
-    background-color: #4b5a51;
+    width: 270px;
     z-index: 3;
 }

@@ -1,51 +1,49 @@
-/* 
-#0E3386
-#CC3433
-#ffffff
-#4b5a51 
-*/
-
-
 .app {
+  align-items: center;
   display: flex;
   flex-direction: column;
+  height: 700px;
   justify-content: center;
-  align-items: center;
+  margin: auto;
+  margin-top: 1em;
+  width: 280px;
 }
 
 .header {
-  font-size: x-large;
-  color: #0E3386;
   background-color: #ffffff;
-  border-radius: 5px;
+  box-shadow: 2px 3px 3px #000000;
+  border-radius: 20px;
+  color: #0E3386;
+  font-size: x-large;
+  font-weight: 900;
+  letter-spacing: 2px;
+  height: 35px;
   padding: .5em 1em;
+  text-align: center;
+  width: 230px;
 }
 
 .make-favorite-button,
 .show-favorite-button {
-  margin: 1em;
-  position: absolute;
-  bottom: 1em;
-  font-size: large;
-  border-radius: 5px;
-  color: #0E3386;
   background-color: #ffffff;
-  padding: .5em 1em;
+  border-radius: 5px;
+  box-shadow: 2px 3px 3px #000000;
+  color: #0E3386;
   cursor: pointer;
+  font-size: large;
+  margin: .5em;
+  padding: .5em 1em;
+  position: relative;
 }
 
 .make-favorite-button:hover,
 .show-favorite-button:hover {
-    background-color: #0E3386;
-    color: #ffffff;
+  background-color: #0E3386;
+  color: #ffffff;
 }
 
 .make-favorite-button:active,
 .show-favorite-button:active {
   background-color: #CC3433;
   color: #ffffff;
-}
-
-.show-favorite-button {
-  bottom: 4em;
 }
