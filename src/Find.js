@@ -15,7 +15,7 @@ class Find extends Component {
         this.props.showFrontOrBack('front')
         this.setState({ playerID: event.value })
         const chosenPlayer = this.getSinglePlayerData(event)
-        this.props.setCurrentPlayer(chosenPlayer, event)
+        this.props.setCurrentPlayer(chosenPlayer)
     }
     
     getSinglePlayerData(event) {

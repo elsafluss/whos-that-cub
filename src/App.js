@@ -16,7 +16,7 @@ class App extends Component {
       chosenPlayer: favoritePlayer,
       showCardSide: 'front',
       favoritePlayerID: null,
-      favoritePlayer: {}
+      favoritePlayer: favoritePlayer
     }
   }
 
@@ -36,13 +36,8 @@ class App extends Component {
     this.setState({ showCardSide: sideToShow})
   }
 
-  setCurrentPlayer = (chosenPlayer, event) => {
+  setCurrentPlayer = (chosenPlayer) => {
     this.setState({ chosenPlayer: chosenPlayer })
-    if (chosenPlayer.PlayerID === this.state.favoritePlayer.PlayerID) {
-      console.log('show the cubbie', event)
-      // event.target.classList.remove('hidden')
-      // event.value should be the player's ID
-    }
   }
 
   getActivePlayers(players) {
@@ -81,7 +76,9 @@ class App extends Component {
             <CardFront 
               chosenPlayer={this.state.chosenPlayer} 
               showFrontOrBack={this.showFrontOrBack}
-              showCardSide={this.state.showCardSide}/> } />
+              showCardSide={this.state.showCardSide}
+              favoritePlayer={this.state.favoritePlayer}
+              /> } />
           <Route path="/back" render={() => 
             <CardBack 
               chosenPlayer={this.state.chosenPlayer} 

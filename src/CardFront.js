@@ -7,7 +7,9 @@ import favorited from './favorited.png'
 class CardFront extends Component {
     constructor() {
         super()
-        this.state = {}
+        this.state = {
+            isFavorite: false
+        }
     }
 
     setName() {
@@ -16,6 +18,11 @@ class CardFront extends Component {
 
     setPictureID() {
         return this.props.chosenPlayer.MLBAMID
+    }
+
+    isFavorite() {
+        const favorited = this.props.chosenPlayer.PlayerID === this.props.favoritePlayer.PlayerID
+        return favorited
     }
 
     render() {
@@ -30,10 +37,10 @@ class CardFront extends Component {
                         src={`https://securea.mlb.com/mlb/images/players/head_shot/${this.setPictureID()}.jpg`} 
                         alt="the player"></img>
                     <div className='player-footer'>
-                        <img 
+                        {this.isFavorite() && <img 
                             src={favorited} 
                             alt='the Cubs bear logo' 
-                            className='player-favorited hidden'/>
+                            className='player-favorited'/>}
                         <div className='player-position'>
                             <span className='position-letters'>
                                 {this.props.chosenPlayer.Position}
