@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './CardBack.css'
-import { motion } from "framer-motion";
+import { cardFlip } from './Animations'
+import {Frame} from "framer";
 
 class CardBack extends Component {
     constructor() {
@@ -80,22 +81,18 @@ class CardBack extends Component {
     getActionPhoto() {
         return `https://securea.mlb.com/images/players/action_shots/${this.props.chosenPlayer.MLBAMID}.jpg`
     }
-    
-    onTap(event, info) {
-        console.log(info.point.x, info.point.y)
-    }
+
 
     render() {
         return (
             <Link to='/'>
-                <motion.div 
-                    whileHover={{ scale: 1.2 }} 
-                    whileTap={{ scale: 0.8 }} 
+                <Frame
+                    rotate={90}
                     className='card-back'>
-                <div className="card-back-header">
-                    <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
-                    <h3 className="card-back-player-name">{this.getName()}</h3>
-                </div>
+                    <div className="card-back-header">
+                        <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
+                        <h3 className="card-back-player-name">{this.getName()}</h3>
+                    </div>
                     <div className="card-back-stats-block">
                         <div className="card-back-height">{this.calculateHeight()}</div>
                         <div className="card-back-batting">{this.getBattingHand()}</div>
@@ -106,7 +103,7 @@ class CardBack extends Component {
                         <div className="card-back-experience">{this.getExperience()}</div>
                         <div className="card-back-salary">{this.getSalary()}</div>
                     </div>
-                </motion.div>
+                </Frame>
             </Link>
         )
     }

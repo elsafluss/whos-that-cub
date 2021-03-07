@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import {Frame} from "framer";
+import { cardFlip } from './Animations'
 import './CardFront.css'
 
 class CardFront extends Component {
@@ -19,7 +21,10 @@ class CardFront extends Component {
     render() {
         return (
             <Link to='/back'>
-                <div className="card-front" onClick={() => this.props.showFrontOrBack('back')}>
+                <Frame 
+                    rotate={90}
+                className='card-front'
+                onClick={() => this.props.showFrontOrBack('back')}>
                     <h1 className='card-title'>CUBS</h1>
                     <div className='player-picture-box'>
                         <img className='player-picture' 
@@ -33,7 +38,7 @@ class CardFront extends Component {
                         {`${this.setName()}   
                         #${this.props.chosenPlayer.Jersey}`}
                     </h2>
-                </div>
+                </Frame>
             </Link>
         )
     }
