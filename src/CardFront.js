@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './CardFront.css'
+import baseball from './baseball.png'
 
 class CardFront extends Component {
     constructor() {
@@ -26,9 +27,12 @@ class CardFront extends Component {
                     <img className='player-picture' 
                         src={`https://securea.mlb.com/mlb/images/players/head_shot/${this.setPictureID()}.jpg`} 
                         alt="the player"></img>
-                    <span className='player-position'>
-                        {this.props.chosenPlayer.Position}
-                    </span>
+                    <div className='player-position'>
+                        <span className='position-letters'>
+                            {this.props.chosenPlayer.Position}
+                        </span>
+                        <img className="position-baseball" src={baseball} alt="a baseball"/>
+                    </div>
                 </div>
                 <h2 className='player-name'>
                     {`${this.setName()}   
