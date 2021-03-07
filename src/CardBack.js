@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import './CardBack.css'
 import headerPhoto from './action-default-photo.jpeg'
 
@@ -97,6 +98,11 @@ class CardBack extends Component {
             </Link>
         )
     }
+}
+
+CardBack.propTypes = {
+    chosenPlayer: PropTypes.object,
+    showFrontOrBack: PropTypes.func
 }
 
 export default CardBack

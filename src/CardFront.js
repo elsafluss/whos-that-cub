@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './CardFront.css'
 import baseball from './baseball.png'
 import favorited from './favorited.png'
+import PropTypes from 'prop-types'
 
 class CardFront extends Component {
     constructor() {
@@ -55,6 +56,12 @@ class CardFront extends Component {
             </Link>
         )
     }
+}
+
+CardFront.propTypes = {
+    chosenPlayer: PropTypes.object,
+    favoritePlayer: PropTypes.object,
+    showFrontOrBack: PropTypes.func
 }
 
 export default CardFront
