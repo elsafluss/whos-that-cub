@@ -58,7 +58,7 @@
 
 .player-position {
     border-radius: 50%;
-    position:absolute;
+    position: absolute;
     right: 0px;
     bottom: -15px;
     background-color: #ffffff;
@@ -69,4 +69,18 @@
     text-align: center;
     box-shadow: 5px 3px #000000;
     z-index: 1;
+}
+
+.position-letters {
+    position: relative;
+    font-size: xx-large;
+}
+
+.position-baseball {
+    height: 58px;
+    width: auto;
+    position: relative;
+    z-index: -1;
+    top: -56px;
+    right: 3px;
 }
