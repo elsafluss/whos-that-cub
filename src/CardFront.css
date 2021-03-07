@@ -60,8 +60,8 @@
     z-index: 0;
 }
 
-.squish {
-    animation: 1s infinite alternate squish;
+.loading {
+    animation: 1s infinite alternate loading;
     background-color: #ffffff;
     border-radius: 50%;
     position: relative;
@@ -69,7 +69,7 @@
     z-index: 0;
 }
 
-@keyframes squish {
+@keyframes loading {
     from {
         width: 50px;
         height: 50px;

@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './CardFront.css'
 import baseball from './baseball.png'
 import favorited from './favorited.png'
+import './CardFront.css'
 import PropTypes from 'prop-types'
 
 class CardFront extends Component {
-    constructor() {
-        super()
-        this.state = {
-            isFavorite: false
-        }
-    }
 
     setName() {
         return this.props.chosenPlayer.FanDuelName.toUpperCase()
@@ -31,17 +25,20 @@ class CardFront extends Component {
             <Link to='/back' 
                 className='card-front'
                 onClick={() => this.props.showFrontOrBack('back')}>
+                
                 <h1 className='card-title'>CUBS</h1>
                 <div className='player-picture-box'>
-                    <div className='squish'></div>
+                    <div className='loading'></div>
                     <img className='player-picture' 
                         src={`https://securea.mlb.com/mlb/images/players/head_shot/${this.setPictureID()}.jpg`} 
                         alt="the player"></img>
                     <div className='player-footer'>
-                        {this.isFavorite() && <img 
+                        {this.isFavorite() && 
+                        <img 
                             src={favorited} 
                             alt='the Cubs bear logo' 
-                            className='player-favorited'/>}
+                            className='player-favorited'
+                        />}
                         <div className='player-position'>
                             <span className='position-letters'>
                                 {this.props.chosenPlayer.Position}
@@ -53,6 +50,7 @@ class CardFront extends Component {
                 <h2 className='player-name'>
                     {`${this.setName()} #${this.props.chosenPlayer.Jersey}`}
                 </h2>
+
             </Link>
         )
     }

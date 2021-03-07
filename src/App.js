@@ -1,11 +1,14 @@
-import './App.css';
 import React, { Component } from 'react'
-import Find from './Find'
-import favoritePlayer from './SinglePlayerData.json'
-import CardBack from './CardBack'
-import { getAllCubsPlayers, online } from './Utility';
 import { Route, Switch, Link } from 'react-router-dom';
+import Find from './Find'
 import CardFront from './CardFront';
+import CardBack from './CardBack'
+import { getAllCubsPlayers, 
+  online, 
+  saveToLocalStorage, 
+  getFromLocalStorage 
+} from './Utility';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -13,10 +16,10 @@ class App extends Component {
     this.state = {
       allPlayers: [],
       activePlayers: [],
-      chosenPlayer: favoritePlayer,
+      chosenPlayer: getFromLocalStorage(),
       showCardSide: 'front',
       favoritePlayerID: null,
-      favoritePlayer: favoritePlayer
+      favoritePlayer: getFromLocalStorage()
     }
   }
 
@@ -36,7 +39,7 @@ class App extends Component {
     this.setState({ showCardSide: sideToShow})
   }
 
-  setCurrentPlayer = (chosenPlayer) => {
+  setChosenPlayer = (chosenPlayer) => {
     this.setState({ chosenPlayer: chosenPlayer })
   }
 
@@ -48,8 +51,9 @@ class App extends Component {
   favoriteThisOne = () => {
     const favoritePlayerID = this.state.chosenPlayer.PlayerID
     const favoritePlayerData = this.state.activePlayers.find(player => player.PlayerID === favoritePlayerID)
+    saveToLocalStorage(favoritePlayerData)
     this.setState({ favoritePlayer: favoritePlayerData })
-    this.setCurrentPlayer(favoritePlayerData)
+    this.setChosenPlayer(favoritePlayerData)
   }
 
   render() {
@@ -58,19 +62,9 @@ class App extends Component {
         <Link to="/" className="header">WHO'S THAT CUB?</Link>
         <Find 
           players={this.state.activePlayers} 
-          setCurrentPlayer={this.setCurrentPlayer} 
+          setChosenPlayer={this.setChosenPlayer} 
           showFrontOrBack={this.showFrontOrBack}
         />
-        <button 
-          className="make-favorite-button" 
-          onClick={this.favoriteThisOne}>
-          this one is my favorite
-        </button>        
-        <button 
-          className="show-favorite-button" 
-          onClick={() => this.setCurrentPlayer(this.state.favoritePlayer)}>
-          show me my favorite
-        </button>
         <Switch>
           <Route exact path="/" render={() => 
             <CardFront 
@@ -85,10 +79,19 @@ class App extends Component {
             /> } />
           <Route path="/*" render={() => <div>404</div>}/> 
         </Switch>
+        <button 
+          className="make-favorite-button" 
+          onClick={this.favoriteThisOne}>
+          this one is my favorite
+        </button>        
+        <button 
+          className="show-favorite-button" 
+          onClick={() => this.setChosenPlayer(this.state.favoritePlayer)}>
+          show me my favorite
+        </button>
       </div>
     )
   }
 }
-
 
 export default App;

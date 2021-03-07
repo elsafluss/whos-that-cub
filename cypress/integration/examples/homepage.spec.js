@@ -23,7 +23,7 @@ context('HOME PAGE', () => {
       .contains('CUBS')
       .get('div[class=player-picture-box]')
       .should('exist')
-      .get('div[class=squish]')
+      .get('div[class=loading]')
       .should('exist')
       .get('img[class=player-picture]')
       .should('exist')    

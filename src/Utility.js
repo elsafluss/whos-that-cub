@@ -9,3 +9,11 @@ export function getAllCubsPlayers() {
         return allPlayers
     }
 }
+
+export function saveToLocalStorage(data) {
+    localStorage.setItem('favoritePlayer', JSON.stringify(data))
+}
+
+export function getFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('favoritePlayer'))
+}
