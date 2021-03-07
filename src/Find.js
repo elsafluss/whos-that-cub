@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Select from 'react-select'
 import './Find.css'
@@ -44,6 +45,12 @@ class Find extends Component {
             </div>
         )
     }
+}
+
+Find.propTypes = {
+    showFrontOrBack: PropTypes.func,
+    setCurrentPlayer: PropTypes.func,
+    players: PropTypes.array
 }
 
 export default Find
