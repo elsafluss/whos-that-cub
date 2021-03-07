@@ -118,3 +118,12 @@ context('VIEW THE PLAYER\'S STATS', () => {
       .contains('He is making $609,000 this year.')
   })
 })
+
+// context('FAVORITE A PLAYER', () => {
+//   beforeEach(() => {
+//     cy.visit('http://localhost:3000')
+//   })
+
+//   it('should display the back of the chosen player card.', () => {
+//   })
+// })
