@@ -17,7 +17,7 @@ class CardBack extends Component {
         const height = this.props.chosenPlayer.Height
         const feet = Math.floor(height / 12)
         const inches = (height - (feet * 12))
-        const heightWeight = `He is ${feet}' ${inches}" tall and weighs ${this.props.chosenPlayer.Weight}lbs`
+        const heightWeight = `He is ${feet}' ${inches}" tall and weighs ${this.props.chosenPlayer.Weight}lbs.`
         return heightWeight
     }
     
