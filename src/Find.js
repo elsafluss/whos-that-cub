@@ -41,6 +41,7 @@ class Find extends Component {
                             borderRadius: 0, 
                             colors: {...theme.colors, primary25:'#CC3433'
                         }})}
+                        placeholder="Choose a player"
                         className='select-player' 
                         onChange={(event) => this.handleChange(event)} 
                         value={this.state.playerID} 
