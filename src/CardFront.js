@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import {Frame} from "framer";
-import { cardFlip } from './Animations'
+import { Frame } from "framer";
 import './CardFront.css'
 
 class CardFront extends Component {
