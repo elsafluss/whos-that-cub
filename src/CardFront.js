@@ -36,8 +36,7 @@ class CardFront extends Component {
                     </div>
                 </div>
                 <h2 className='player-name'>
-                    {`${this.setName()}   
-                    #${this.props.chosenPlayer.Jersey}`}
+                    {`${this.setName()} #${this.props.chosenPlayer.Jersey}`}
                 </h2>
             </Link>
         )
