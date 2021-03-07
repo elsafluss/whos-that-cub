@@ -45,6 +45,13 @@ class App extends Component {
 
   getActivePlayers(players) {
     const activePlayers = players.filter(player => player.Status === 'Active')
+    activePlayers.sort((a, b) => {
+      if(a.LastName < b.LastName) {
+        return -1
+      } else {
+        return 1
+      }
+    })
     this.setState({ activePlayers: activePlayers })
   }
 
