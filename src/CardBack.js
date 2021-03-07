@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './CardBack.css'
-import { Frame } from "framer";
 
 class CardBack extends Component {
     constructor() {
@@ -81,28 +80,23 @@ class CardBack extends Component {
         return `https://securea.mlb.com/images/players/action_shots/${this.props.chosenPlayer.MLBAMID}.jpg`
     }
 
-
     render() {
         return (
-            <Link to='/'>
-                <Frame
-                    rotate={90}
-                    className='card-back'>
-                    <div className="card-back-header">
-                        <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
-                        <h3 className="card-back-player-name">{this.getName()}</h3>
-                    </div>
-                    <div className="card-back-stats-block">
-                        <div className="card-back-height">{this.calculateHeight()}</div>
-                        <div className="card-back-batting">{this.getBattingHand()}</div>
-                        <div className="card-back-throwing">{this.getThrowingHand()}</div>
-                        <div className="card-back-birthday">{this.getBirthDay()}</div>
-                        <div className="card-back-high-school">{this.getHighSchool() }</div>
-                        <div className="card-back-college">{this.getCollege()}</div>
-                        <div className="card-back-experience">{this.getExperience()}</div>
-                        <div className="card-back-salary">{this.getSalary()}</div>
-                    </div>
-                </Frame>
+            <Link to='/' className='card-back'>
+                <div className="card-back-header">
+                    <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
+                    <h3 className="card-back-player-name">{this.getName()}</h3>
+                </div>
+                <div className="card-back-stats-block">
+                    <div className="card-back-height">{this.calculateHeight()}</div>
+                    <div className="card-back-batting">{this.getBattingHand()}</div>
+                    <div className="card-back-throwing">{this.getThrowingHand()}</div>
+                    <div className="card-back-birthday">{this.getBirthDay()}</div>
+                    <div className="card-back-high-school">{this.getHighSchool() }</div>
+                    <div className="card-back-college">{this.getCollege()}</div>
+                    <div className="card-back-experience">{this.getExperience()}</div>
+                    <div className="card-back-salary">{this.getSalary()}</div>
+                </div>
             </Link>
         )
     }
