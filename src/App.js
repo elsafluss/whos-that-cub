@@ -33,11 +33,16 @@ class App extends Component {
   }
 
   showFrontOrBack = (sideToShow) => {
-      this.setState({ showCardSide: sideToShow})
+    this.setState({ showCardSide: sideToShow})
   }
 
-  setCurrentPlayer = (chosenPlayer) => {
+  setCurrentPlayer = (chosenPlayer, event) => {
     this.setState({ chosenPlayer: chosenPlayer })
+    if (chosenPlayer.PlayerID === this.state.favoritePlayer.PlayerID) {
+      console.log('show the cubbie', event)
+      // event.target.classList.remove('hidden')
+      // event.value should be the player's ID
+    }
   }
 
   getActivePlayers(players) {

@@ -80,6 +80,24 @@
         height: 150px;
     }
 }
+
+.player-footer {
+    width: 210px;
+    height: 100px;
+    position: absolute;
+    bottom: -5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-favorited {
+    width: 75px;
+    height: auto;
+    margin-left: 10px;
+}
+
 .player-position {
     border-radius: 50%;
     position: absolute;
@@ -107,4 +125,8 @@
     z-index: -1;
     top: -56px;
     right: 3px;
+}
+
+.hidden {
+    visibility: hidden;
 }
