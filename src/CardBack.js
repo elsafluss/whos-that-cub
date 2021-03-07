@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import './CardBack.css'
 import headerPhoto from './action-default-photo.jpeg'
+import './CardBack.css'
+import PropTypes from 'prop-types'
 
 class CardBack extends Component {
-    constructor() {
-        super()
-        this.state = {}
-    }
 
     componentDidMount() {
         this.props.showFrontOrBack('back')

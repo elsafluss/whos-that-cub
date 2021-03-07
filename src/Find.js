@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Select from 'react-select'
+import PropTypes from 'prop-types'
 import './Find.css'
 
 class Find extends Component {
@@ -16,7 +16,7 @@ class Find extends Component {
         this.props.showFrontOrBack('front')
         this.setState({ playerID: event.value })
         const chosenPlayer = this.getSinglePlayerData(event)
-        this.props.setCurrentPlayer(chosenPlayer)
+        this.props.setChosenPlayer(chosenPlayer)
     }
     
     getSinglePlayerData(event) {
@@ -35,7 +35,12 @@ class Find extends Component {
             <div>
                 <form>
                     <Select
-                        theme={theme => ({...theme, color: '#4b5a51', borderRadius: 0, colors: {...theme.colors, primary25:'#CC3433'}})}
+                        theme={theme => ({
+                            ...theme, 
+                            color: '#4b5a51', 
+                            borderRadius: 0, 
+                            colors: {...theme.colors, primary25:'#CC3433'
+                        }})}
                         className='select-player' 
                         onChange={(event) => this.handleChange(event)} 
                         value={this.state.playerID} 
@@ -49,7 +54,7 @@ class Find extends Component {
 
 Find.propTypes = {
     showFrontOrBack: PropTypes.func,
-    setCurrentPlayer: PropTypes.func,
+    setChosenPlayer: PropTypes.func,
     players: PropTypes.array
 }
 
