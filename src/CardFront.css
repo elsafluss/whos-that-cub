@@ -66,6 +66,7 @@
     border-radius: 50%;
     position: relative;
     top: 50px;
+    z-index: 0;
 }
 
 @keyframes squish {
