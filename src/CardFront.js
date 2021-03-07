@@ -12,7 +12,14 @@ class CardFront extends Component {
     }
 
     setPictureID() {
-        return this.props.chosenPlayer.MLBAMID
+        if (this.props.favoritePlayer === null) {
+            return <div>You don't have a favorite player yet!</div>
+        } else {
+            const pictureID = this.props.chosenPlayer.MLBAMID
+            return <img className='player-picture' 
+                src={`https://securea.mlb.com/mlb/images/players/head_shot/${pictureID}.jpg`} 
+                alt="the player"></img>
+        }
     }
 
     isFavorite() {
@@ -29,9 +36,7 @@ class CardFront extends Component {
                 <h1 className='card-title'>CUBS</h1>
                 <div className='player-picture-box'>
                     <div className='loading'></div>
-                    <img className='player-picture' 
-                        src={`https://securea.mlb.com/mlb/images/players/head_shot/${this.setPictureID()}.jpg`} 
-                        alt="the player"></img>
+                    {this.setPictureID()}
                     <div className='player-footer'>
                         {this.isFavorite() && 
                         <img 

@@ -1,4 +1,5 @@
 import allPlayers from './WholeTeamData.json'
+import javy from './javy.json'
 export const online = false
 
 export function getAllCubsPlayers() {
@@ -15,5 +16,7 @@ export function saveToLocalStorage(data) {
 }
 
 export function getFromLocalStorage() {
+    saveToLocalStorage(javy)
     return JSON.parse(localStorage.getItem('favoritePlayer'))
 }
+// This puts a player (a good one) into local storage for the first time a user opens the app
