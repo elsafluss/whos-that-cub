@@ -3,29 +3,38 @@
 #CC3433
 #ffffff
 #4b5a51 
+card width: 270px
+card height: 420px
 */
-
 
 .app {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto;
+  margin-top: 1em;
+  width: 280px;
+  height: 700px;
 }
 
 .header {
   font-size: x-large;
+  width: 230px;
+  height: 35px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
   color: #0E3386;
   background-color: #ffffff;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: .5em 1em;
 }
 
 .make-favorite-button,
 .show-favorite-button {
-  margin: 1em;
-  position: absolute;
-  bottom: 1em;
+  margin: .5em;
+  position: relative;
   font-size: large;
   border-radius: 5px;
   color: #0E3386;
@@ -44,8 +53,4 @@
 .show-favorite-button:active {
   background-color: #CC3433;
   color: #ffffff;
-}
-
-.show-favorite-button {
-  bottom: 4em;
 }
