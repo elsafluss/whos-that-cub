@@ -14,7 +14,8 @@ class App extends Component {
       allPlayers: [],
       activePlayers: [],
       chosenPlayer: favoritePlayer,
-      showCardSide: 'front'
+      showCardSide: 'front',
+      favoritePlayer: null
     }
   }
 
@@ -43,6 +44,10 @@ class App extends Component {
     this.setState({ activePlayers: activePlayers })
   }
 
+  favoriteThisOne = () => {
+    this.setState({ favoritePlayer: this.state.chosenPlayer.PlayerID})
+  }
+
   render() {
     return (
       <div className="app">
@@ -52,7 +57,11 @@ class App extends Component {
           setCurrentPlayer={this.setCurrentPlayer} 
           showFrontOrBack={this.showFrontOrBack}
         />
-        <button className="favorite-button">this one is my favorite</button>
+        <button 
+          className="favorite-button" 
+          onClick={this.favoriteThisOne}>
+          this one is my favorite
+        </button>
         <Switch>
           <Route exact path="/" render={() => 
             <CardFront 
