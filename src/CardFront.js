@@ -18,8 +18,9 @@ class CardFront extends Component {
 
     render() {
         return (
-            <Link to='/back' className='card-front'
-            onClick={() => this.props.showFrontOrBack('back')}>
+            <Link to='/back' 
+                className='card-front'
+                onClick={() => this.props.showFrontOrBack('back')}>
                 <h1 className='card-title'>CUBS</h1>
                 <div className='player-picture-box'>
                     <img className='player-picture' 
