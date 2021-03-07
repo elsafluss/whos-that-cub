@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './CardBack.css'
+import headerPhoto from './action-default-photo.jpeg'
 
 class CardBack extends Component {
     constructor() {
@@ -76,15 +77,11 @@ class CardBack extends Component {
         }
     }
 
-    getActionPhoto() {
-        return `https://securea.mlb.com/images/players/action_shots/${this.props.chosenPlayer.MLBAMID}.jpg`
-    }
-
     render() {
         return (
             <Link to='/' className='card-back'>
                 <div className="card-back-header">
-                    <img className="card-back-action-photo" src={this.getActionPhoto()} alt='player in action'/>
+                    <img className="card-back-action-photo" src={headerPhoto} alt='baseballs'/>
                     <h3 className="card-back-player-name">{this.getName()}</h3>
                 </div>
                 <div className="card-back-stats-block">
