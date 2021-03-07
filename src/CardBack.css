@@ -1,51 +1,51 @@
 .card-back {
-    border: 8px solid #ffffff;
-    display: flex;
-    flex-direction: column;
     align-items: left;
-    height: 400px;
-    width: 250px;
-    margin: auto;
+    background: #0E3386;
+    border: 8px solid #ffffff;
     box-shadow: 4px 5px 5px #000000,
         -1px -1px 2px #000000;
-    position: relative;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    margin: auto;
     padding: 0;
-    background: #0E3386;
+    position: relative;
+    width: 250px;
 }
 
 .card-back-header {
-    position: relative;
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
 .card-back-player-name {
-    z-index: 2;
-    position: absolute;
     color: #0E3386;
     font-size: 1.5em;
+    position: absolute;
     -webkit-text-stroke: .5px #ffffff;
+    z-index: 2;
 }
 
 .card-back-action-photo {
-    width: 100%;
-    position: relative;
     height: auto;
+    position: relative;
+    width: 100%;
     z-index: 0;
 }
 
 .card-back-stats-block {
-    display: flex;
-    font-size: 15px;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: left;
-    margin: .5em 1em;
     border-bottom: 5px dotted #cc3433;
     border-top: 5px dotted #cc3433;
-    padding-top: 7px;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    justify-content: space-evenly;
+    margin: .5em 1em;
     padding-bottom: 7px;
+    padding-top: 7px;
 }
