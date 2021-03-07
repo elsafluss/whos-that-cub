@@ -15,7 +15,8 @@ class App extends Component {
       activePlayers: [],
       chosenPlayer: favoritePlayer,
       showCardSide: 'front',
-      favoritePlayer: null
+      favoritePlayerID: null,
+      favoritePlayer: {}
     }
   }
 
@@ -45,7 +46,10 @@ class App extends Component {
   }
 
   favoriteThisOne = () => {
-    this.setState({ favoritePlayer: this.state.chosenPlayer.PlayerID})
+    const favoritePlayerID = this.state.chosenPlayer.PlayerID
+    const favoritePlayerData = this.state.activePlayers.find(player => player.PlayerID === favoritePlayerID)
+    this.setState({ favoritePlayer: favoritePlayerData })
+    this.setCurrentPlayer(favoritePlayerData)
   }
 
   render() {
@@ -64,7 +68,7 @@ class App extends Component {
         </button>        
         <button 
           className="show-favorite-button" 
-          onClick={this.favoriteThisOne}>
+          onClick={() => this.setCurrentPlayer(this.state.favoritePlayer)}>
           show me my favorite
         </button>
         <Switch>
