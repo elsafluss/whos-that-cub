@@ -25,9 +25,9 @@
 .card-back-player-name {
     z-index: 2;
     position: absolute;
-    color: #ffffff;
+    color: #0E3386;
     font-size: 1.5em;
-    -webkit-text-stroke: .5px #cc3433;
+    -webkit-text-stroke: .5px #ffffff;
 }
 
 .card-back-action-photo {

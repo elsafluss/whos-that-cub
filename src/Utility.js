@@ -9,5 +9,3 @@ export function getAllCubsPlayers() {
         return allPlayers
     }
 }
-
-// ping action photo in a fetch for a status and if it's 404, then show either wrigley or the baseballs
