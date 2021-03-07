@@ -58,9 +58,14 @@ class App extends Component {
           showFrontOrBack={this.showFrontOrBack}
         />
         <button 
-          className="favorite-button" 
+          className="make-favorite-button" 
           onClick={this.favoriteThisOne}>
           this one is my favorite
+        </button>        
+        <button 
+          className="show-favorite-button" 
+          onClick={this.favoriteThisOne}>
+          show me my favorite
         </button>
         <Switch>
           <Route exact path="/" render={() => 
