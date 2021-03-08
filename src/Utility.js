@@ -1,5 +1,5 @@
 // for development, comment-in lines 3 and 20-21 here
-// and change line 5 to false
+// and change line 5 to false so you don't hit the API
 // import allPlayers from "./WholeTeamData.json"
 import javy from "./javy.json"
 export const online = true
