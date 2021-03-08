@@ -47,3 +47,9 @@
   background-color: #CC3433;
   color: #ffffff;
 }
+
+.error {
+  height: 400px;
+  width: 250px;
+  text-align: center;
+}

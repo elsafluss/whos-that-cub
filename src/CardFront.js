@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import baseball from './baseball.png'
 import favorited from './favorited.png'
+import serverError from "./server-error.jpeg"
 import './CardFront.css'
 import PropTypes from 'prop-types'
 
@@ -32,7 +33,11 @@ class CardFront extends Component {
             <Link to='/back' 
                 className='card-front'
                 onClick={() => this.props.showFrontOrBack('back')}>
-                
+                {this.props.serverError && 
+                    <img className="server-error" 
+                        src={serverError} 
+                        alt="server error message"
+                    />}
                 <h1 className='card-title'>CUBS</h1>
                 <div className='player-picture-box'>
                     <div className='loading'></div>
@@ -64,7 +69,8 @@ class CardFront extends Component {
 CardFront.propTypes = {
     chosenPlayer: PropTypes.object,
     favoritePlayer: PropTypes.object,
-    showFrontOrBack: PropTypes.func
+    showFrontOrBack: PropTypes.func,
+    serverError: PropTypes.bool
 }
 
 export default CardFront

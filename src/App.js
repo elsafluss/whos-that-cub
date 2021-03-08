@@ -14,12 +14,13 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      allPlayers: [],
       activePlayers: [],
+      allPlayers: [],
       chosenPlayer: getFromLocalStorage(),
-      showCardSide: 'front',
+      favoritePlayer: getFromLocalStorage(),
       favoritePlayerID: null,
-      favoritePlayer: getFromLocalStorage()
+      showCardSide: 'front',
+      serverError: false
     }
   }
 
@@ -28,7 +29,9 @@ class App extends Component {
     if (online) {
       getAllCubsPlayers()
       .then(data => this.getActivePlayers(data))
-      .catch(error => console.log(error))
+      .catch(error => {
+        this.setState({ serverError: true })
+      })
     } else {
       const allPlayers = getAllCubsPlayers()
       this.getActivePlayers(allPlayers)
@@ -78,13 +81,14 @@ class App extends Component {
               chosenPlayer={this.state.chosenPlayer} 
               showFrontOrBack={this.showFrontOrBack}
               favoritePlayer={this.state.favoritePlayer}
+              serverError={this.state.serverError}
               /> } />
           <Route path="/back" render={() => 
             <CardBack 
               chosenPlayer={this.state.chosenPlayer} 
               showFrontOrBack={this.showFrontOrBack} 
             /> } />
-          <Route path="/*" render={() => <div>404</div>}/> 
+          <Route path="/*" render={() => <div className='error'><p>That player was not found.</p><p>Please use the search to find a current Cubs player.</p></div>}/> 
         </Switch>
         <button 
           className="make-favorite-button" 
