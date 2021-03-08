@@ -63,7 +63,9 @@ class CardBack extends Component {
     }
 
     getExperience() {
-        return `He has played in the majors for ${this.props.chosenPlayer.Experience} years.`
+        return this.props.chosenPlayer.Experience !== '0' ?
+        `He has played in the majors for ${this.props.chosenPlayer.Experience} years.` :
+        `This is his rookie season.`
     }
 
     getSalary() {
