@@ -4,7 +4,7 @@ export const online = false
 
 export function getAllCubsPlayers() {
     if (online) {
-        return fetch('httpasdfs://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2')
+        return fetch('https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2')
         .then(response => {
             if (response.status >= 400 && 500 >= response.status) {
                 throw new Error("User Error")
@@ -23,8 +23,14 @@ export function saveToLocalStorage(data) {
     localStorage.setItem('favoritePlayer', JSON.stringify(data))
 }
 
+// If there's nothing in localStorage, return Javy
+// because he should be your favorite anyway.
+
 export function getFromLocalStorage() {
-    saveToLocalStorage(javy)
-    return JSON.parse(localStorage.getItem('favoritePlayer'))
+    const storedPlayer = JSON.parse(localStorage.getItem('favoritePlayer'))
+    if(!storedPlayer) {
+        return javy
+    } else {
+        return storedPlayer
+    }
 }
-// This puts a player (a good one) into local storage for the first time a user opens the app

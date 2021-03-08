@@ -88,7 +88,11 @@ class App extends Component {
               chosenPlayer={this.state.chosenPlayer} 
               showFrontOrBack={this.showFrontOrBack} 
             /> } />
-          <Route path="/*" render={() => <div className='error'><p>That player was not found.</p><p>Please use the search to find a current Cubs player.</p></div>}/> 
+          <Route path="/*" render={() => 
+            <div className='error'>
+              <p>That player was not found.</p>
+              <p>Please use the search to find a current Cubs player.</p>
+            </div>}/>
         </Switch>
         <button 
           className="make-favorite-button" 
