@@ -10,42 +10,42 @@
 }
 
 .header {
-  background-color: #ffffff;
-  box-shadow: 2px 3px 3px #000000;
+  background-color: #fff;
+  box-shadow: 2px 3px 3px #000;
   border-radius: 20px;
-  color: #0E3386;
+  color: #0e3386;
   font-size: x-large;
   font-weight: 900;
   letter-spacing: 2px;
   height: 35px;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   text-align: center;
   width: 230px;
 }
 
 .make-favorite-button,
 .show-favorite-button {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 5px;
-  box-shadow: 2px 3px 3px #000000;
-  color: #0E3386;
+  box-shadow: 2px 3px 3px #000;
+  color: #0e3386;
   cursor: pointer;
   font-size: large;
-  margin: .5em;
-  padding: .5em 1em;
+  margin: 0.5em;
+  padding: 0.5em 1em;
   position: relative;
 }
 
 .make-favorite-button:hover,
 .show-favorite-button:hover {
-  background-color: #0E3386;
-  color: #ffffff;
+  background-color: #0e3386;
+  color: #fff;
 }
 
 .make-favorite-button:active,
 .show-favorite-button:active {
-  background-color: #CC3433;
-  color: #ffffff;
+  background-color: #cc3433;
+  color: #fff;
 }
 
 .error {

@@ -1,136 +1,136 @@
 .card-front {
-    align-items: center;
-    background: rgb(182, 53, 63);
-    background: linear-gradient(0deg, rgba(182, 53, 63, 1) 40%, rgba(102, 156, 202, 1) 40%);
-    border: 8px solid #ffffff;
-    border-radius: 1px;
-    box-shadow: 4px 5px 5px #000000,
-        -1px -1px 2px #000000;
-    display: flex;
-    flex-direction: column;
-    height: 400px;
-    justify-content: center;
-    margin: auto;
-    padding: 0;
-    position: relative;
-    width: 250px;
+  align-items: center;
+  background: rgb(182, 53, 63);
+  background: linear-gradient(
+    0deg,
+    rgba(182, 53, 63, 1) 40%,
+    rgba(102, 156, 202, 1) 40%
+  );
+  border: 8px solid #fff;
+  border-radius: 1px;
+  box-shadow: 4px 5px 5px #000, -1px -1px 2px #000;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: center;
+  margin: auto;
+  padding: 0;
+  position: relative;
+  width: 250px;
 }
 
 .card-title {
-    color: #cc3433;
-    font-family: 'Raleway',
-        sans-serif;
-    font-size: 50px;
-    text-shadow: 10px 6px #000000,
-        2px 5px #000000;
-    font-weight: 900;
-    margin: 5px 0 -15px 0;
-    padding: 0;
-    text-align: center;
-    transform: scaleX(1.3);
-    -webkit-text-stroke: 1px black;
+  color: #cc3433;
+  font-family: "Raleway", sans-serif;
+  font-size: 50px;
+  text-shadow: 10px 6px #000, 2px 5px #000;
+  font-weight: 900;
+  margin: 5px 0 -15px 0;
+  padding: 0;
+  text-align: center;
+  transform: scaleX(1.3);
+  -webkit-text-stroke: 1px black;
 }
 
 .player-name {
-    color: #ffffff;
-    font-size: larger;
-    margin: 0;
-    text-align: center;
-    -webkit-text-stroke: .3px black;
+  color: #fff;
+  font-size: larger;
+  margin: 0;
+  text-align: center;
+  -webkit-text-stroke: 0.3px black;
 }
 
 .player-picture-box {
-    align-items: center;
-    background-color: #4b5a51;
-    border: 4px solid white;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    height: 280px;
-    justify-content: center;
-    margin: auto;
-    position: relative;
-    width: 187px;
+  align-items: center;
+  background-color: #4b5a51;
+  border: 4px solid white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  width: 187px;
 }
 
 .player-picture {
-    border-radius: 10px;
-    height: 281px;
-    width: auto;
-    z-index: 0;
+  border-radius: 10px;
+  height: 281px;
+  width: auto;
+  z-index: 0;
 }
 
 .loading {
-    animation: 1s infinite alternate loading;
-    background-color: #ffffff;
-    border-radius: 50%;
-    position: relative;
-    top: 50px;
-    z-index: 0;
+  animation: 1s infinite alternate loading;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  top: 50px;
+  z-index: 0;
 }
 
 @keyframes loading {
-    from {
-        width: 50px;
-        height: 50px;
-    }
-    to {
-        width: 150px;
-        height: 150px;
-    }
+  from {
+    width: 50px;
+    height: 50px;
+  }
+  to {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .player-footer {
-    align-items: center;
-    bottom: -5px;
-    display: flex;
-    flex-direction: row;
-    height: 100px;
-    justify-content: space-between;
-    position: absolute;
-    width: 210px;
+  align-items: center;
+  bottom: -5px;
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  justify-content: space-between;
+  position: absolute;
+  width: 210px;
 }
 
 .player-favorited {
-    height: auto;
-    margin-left: 10px;
-    width: 75px;
+  height: auto;
+  margin-left: 10px;
+  width: 75px;
 }
 
 .player-position {
-    background-color: #ffffff;
-    color: #000000;
-    border: 3px solid #000000;
-    border-radius: 50%;
-    bottom: -15px;
-    box-shadow: 5px 3px #000000;
-    height: 50px;
-    position: absolute;
-    right: 0px;
-    text-align: center;
-    width: 50px;
-    z-index: 1;
+  background-color: #fff;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 50%;
+  bottom: -15px;
+  box-shadow: 5px 3px #000;
+  height: 50px;
+  position: absolute;
+  right: 0px;
+  text-align: center;
+  width: 50px;
+  z-index: 1;
 }
 
 .position-letters {
-    font-size: xx-large;
-    position: relative;
+  font-size: xx-large;
+  position: relative;
 }
 
 .position-baseball {
-    height: 58px;
-    width: auto;
-    position: relative;
-    right: 3px;
-    top: -56px;
-    z-index: -1;
+  height: 58px;
+  width: auto;
+  position: relative;
+  right: 3px;
+  top: -56px;
+  z-index: -1;
 }
 
 .server-error {
-    height: 400px;
-    width: 250px;
-    z-index: 10;
-    position: absolute;
-    margin: auto;
-
+  height: 400px;
+  width: 250px;
+  z-index: 10;
+  position: absolute;
+  margin: auto;
 }
