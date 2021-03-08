@@ -1,13 +1,13 @@
 .find-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .select-player {
-    box-shadow: 2px 3px 3px #000000;
-    margin: 1em;
-    width: 270px;
-    z-index: 3;
+  box-shadow: 2px 3px 3px #000;
+  margin: 1em;
+  width: 270px;
+  z-index: 3;
 }

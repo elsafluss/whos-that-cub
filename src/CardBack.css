@@ -1,51 +1,50 @@
 .card-back {
-    align-items: left;
-    background: #0E3386;
-    border: 8px solid #ffffff;
-    box-shadow: 4px 5px 5px #000000,
-        -1px -1px 2px #000000;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    height: 400px;
-    margin: auto;
-    padding: 0;
-    position: relative;
-    width: 250px;
+  align-items: left;
+  background: #0e3386;
+  border: 8px solid #fff;
+  box-shadow: 4px 5px 5px #000, -1px -1px 2px #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: auto;
+  padding: 0;
+  position: relative;
+  width: 250px;
 }
 
 .card-back-header {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
 .card-back-player-name {
-    color: #0E3386;
-    font-size: 1.5em;
-    position: absolute;
-    -webkit-text-stroke: .5px #ffffff;
-    z-index: 2;
+  color: #0e3386;
+  font-size: 1.5em;
+  position: absolute;
+  -webkit-text-stroke: 0.5px #fff;
+  z-index: 2;
 }
 
 .card-back-action-photo {
-    height: auto;
-    position: relative;
-    width: 100%;
-    z-index: 0;
+  height: auto;
+  position: relative;
+  width: 100%;
+  z-index: 0;
 }
 
 .card-back-stats-block {
-    align-items: left;
-    border-bottom: 5px dotted #cc3433;
-    border-top: 5px dotted #cc3433;
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
-    justify-content: space-evenly;
-    margin: .5em 1em;
-    padding-bottom: 7px;
-    padding-top: 7px;
+  align-items: left;
+  border-bottom: 5px dotted #cc3433;
+  border-top: 5px dotted #cc3433;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  justify-content: space-evenly;
+  margin: 0.5em 1em;
+  padding-bottom: 7px;
+  padding-top: 7px;
 }
