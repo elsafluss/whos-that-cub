@@ -73,9 +73,7 @@ context("SELECT A PLAYER", () => {
       .get('h2[class=player-name]')
       .contains('JAVIER BÁEZ #9')
     
-    cy.get('.select-player')
-      .type('Kris Bryant {enter}')
-      .wait(3000)
+    cy.get(".select-player").type("Kris Bryant").type("{enter}").wait(3000)
 
     cy.get('img[class=player-picture]')
       .should('be.visible')  
@@ -155,7 +153,7 @@ context("FAVORITE A PLAYER", () => {
     cy.get("img[class=player-favorited]").should("be.visible")
     cy.get("div[class=player-footer]").should("exist")
 
-    cy.get(".select-player").type("Anthony Rizzo {enter}")
+    cy.get(".select-player").type("Anthony Rizzo").type("{enter}")
     cy.get("img[class=player-favorited]").should("not.exist")
 
     cy.get(".make-favorite-button").click()
@@ -163,7 +161,7 @@ context("FAVORITE A PLAYER", () => {
     cy.get("img[class=player-favorited]").should("be.visible")
     cy.get("div[class=player-footer]").should("exist")
 
-    cy.get(".select-player").type("Javier Baez {enter}")
+    cy.get(".select-player").type("Javier Baez").type("{enter}")
     cy.get("img[class=player-favorited]").should("not.exist")
   })
 })
