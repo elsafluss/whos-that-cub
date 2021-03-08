@@ -1,4 +1,4 @@
-# WHO'S THAT CUB?
+# [WHO'S THAT CUB?](https://whos-that-player.herokuapp.com/)
 ---
 
 ![favorited](https://user-images.githubusercontent.com/13261139/110353623-811f6c00-7ff4-11eb-8601-e4500be06751.png)
@@ -22,7 +22,7 @@ Future iterations might include adding non-active players or other MLB teams, wh
 ## Features
 
 To view please:
-- please visit the deployed app [here](https://whos-that-player.herokuapp.com/) to interact and view
+- Visit the deployed app [here](https://whos-that-player.herokuapp.com/) to interact and view
 - Note: This is hosted on the free version of Heroku so if you get a blank screen please wait 69 seconds and do a hard refresh on the page.
 - This API is limited to 1000 calls per month, so only one call is used, when you load the page.
 
