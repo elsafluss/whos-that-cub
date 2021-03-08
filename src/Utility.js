@@ -1,6 +1,6 @@
-import allPlayers from './WholeTeamData.json'
+// import allPlayers from './WholeTeamData.json'
 import javy from './javy.json'
-export const online = false
+export const online = true
 
 export function getAllCubsPlayers() {
     if (online) {
@@ -14,8 +14,8 @@ export function getAllCubsPlayers() {
                 return response.json()
             }
         })
-    } else {
-        return allPlayers
+    // } else {
+    //     return allPlayers
     }
 }
 

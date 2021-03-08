@@ -98,7 +98,7 @@ class App extends Component {
           className="make-favorite-button" 
           onClick={this.favoriteThisOne}>
           this one is my favorite
-        </button>        
+        </button>
         <button 
           className="show-favorite-button" 
           onClick={() => this.setChosenPlayer(this.state.favoritePlayer)}>

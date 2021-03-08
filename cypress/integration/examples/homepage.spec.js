@@ -2,6 +2,13 @@
 context('HOME PAGE', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
+    cy.intercept({
+      method: 'GET',
+      url: 'https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2'
+    }, {
+      statusCode: 200,
+      body: '../fixtures/wholeTeamData.json'
+    })
   })
 
   it('should display the header', () => {
@@ -52,6 +59,13 @@ context('HOME PAGE', () => {
 context('SELECT A PLAYER', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
+    cy.intercept({
+      method: 'GET',
+      url: 'https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2'
+    }, {
+      statusCode: 200,
+      body: '../fixtures/wholeTeamData.json'
+    })
   })
 
   it('should display the chosen player', () => {
@@ -65,6 +79,7 @@ context('SELECT A PLAYER', () => {
     
     cy.get('.select-player')
       .type('Kris Bryant {enter}')
+      .wait(3000)
 
     cy.get('img[class=player-picture]')
       .should('be.visible')  
@@ -79,6 +94,13 @@ context('SELECT A PLAYER', () => {
 context('VIEW THE PLAYER\'S STATS', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
+    cy.intercept({
+      method: 'GET',
+      url: 'https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2'
+    }, {
+      statusCode: 200,
+      body: '../fixtures/wholeTeamData.json'
+    })
   })
 
   it('should display the back of the chosen player card', () => {
@@ -124,6 +146,13 @@ context('VIEW THE PLAYER\'S STATS', () => {
 context('FAVORITE A PLAYER', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
+    cy.intercept({
+      method: 'GET',
+      url: 'https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2'
+    }, {
+      statusCode: 200,
+      body: '../fixtures/wholeTeamData.json'
+    })
   })
 
   it('should add the favorite icon only to the favorite player', () => {
