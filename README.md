@@ -54,3 +54,6 @@ Thank you.
  <td><img src="https://avatars.githubusercontent.com/u/13261139?s=460&u=f25038a8142aee42289ea23cee45c22fa97888ca&v=4" alt="Elsa Fluss"
  width="150" height="auto" /></td>
 </table>
+
+
+All the images and icons used in this project are property of their owners.
