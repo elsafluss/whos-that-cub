@@ -1,20 +1,16 @@
+/* eslint-disable no-undef */
 context("HOME PAGE", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:3000")
+  it("should display the header", () => {
     cy.intercept(
-      {
-        method: "GET",
-        url:
-          "https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2",
-      },
+      "GET",
+      "https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2",
+      { fixture: "../fixtures/wholeTeamData.json" },
       {
         statusCode: 200,
         body: "../fixtures/wholeTeamData.json",
       }
     )
-  })
-
-  it("should display the header", () => {
+    cy.visit("http://localhost:3000")
     cy.get(".header").should("exist").contains("WHO'S THAT CUB?")
   })
 

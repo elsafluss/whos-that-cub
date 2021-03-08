@@ -1,20 +1,16 @@
+/* eslint-disable no-undef */
 context("VIEW THE PLAYER'S STATS", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:3000")
+  it("should display the back of the chosen player card", () => {
     cy.intercept(
-      {
-        method: "GET",
-        url:
-          "https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2",
-      },
+      "GET",
+      "https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2",
+      { fixture: "../fixtures/wholeTeamData.json" },
       {
         statusCode: 200,
         body: "../fixtures/wholeTeamData.json",
       }
     )
-  })
-
-  it("should display the back of the chosen player card", () => {
+    cy.visit("http://localhost:3000")
     cy.get("img[class=player-picture]")
       .click()
       .get("div[class=card-back-header]")
