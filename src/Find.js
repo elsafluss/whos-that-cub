@@ -32,7 +32,7 @@ class Find extends Component {
             return {value: player.PlayerID, label: player.FanDuelName}
         })
         return (
-            <div>
+            <div className='find-container'>
                 <form>
                     <Select
                         theme={theme => ({

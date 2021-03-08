@@ -4,7 +4,7 @@ export const online = false
 
 export function getAllCubsPlayers() {
     if (online) {
-        return fetch('https://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2')
+        return fetch('httpasdfs://api.sportsdata.io/v3/mlb/scores/json/Players/CHC?key=b37a9e7224fa4a63900203ee59666bc2')
         .then(response => {
             if (response.status >= 400 && 500 >= response.status) {
                 throw new Error("User Error")
