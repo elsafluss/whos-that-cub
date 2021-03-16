@@ -82,7 +82,7 @@ CardFront.propTypes = {
   chosenPlayer: PropTypes.object,
   favoritePlayer: PropTypes.object,
   showFrontOrBack: PropTypes.func,
-  serverError: PropTypes.bool,
+  serverError: PropTypes.bool
 }
 
 export default CardFront
