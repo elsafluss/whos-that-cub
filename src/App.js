@@ -73,7 +73,8 @@ class App extends Component {
     return (
       <div className="app">
         <Link to="/" className="header">
-          WHO'S THAT CUB?
+          {/* WHO'S THAT CUB?  */}
+          {process.env.NODE_ENV}
         </Link>
         <Find
           players={this.state.activePlayers}
