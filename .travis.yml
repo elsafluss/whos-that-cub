@@ -7,6 +7,4 @@ cache:
     npm: true
     directories:
       - ~/.cache
-install:
-  -npm i cypress
-script: npx cypress open
+
