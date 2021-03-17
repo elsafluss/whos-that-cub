@@ -70,6 +70,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('app is automatically deployed')
     return (
       <div className="app">
         <Link to="/" className="header">
