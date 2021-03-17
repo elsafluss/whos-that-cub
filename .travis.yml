@@ -8,5 +8,5 @@ cache:
     directories:
       - ~/.cache
 install:
-  -npm ci
+  -npm cypress
 script: npx cypress open
