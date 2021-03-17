@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 
-// NOTE: If you run this test more than once
 context("FAVORITE A PLAYER", () => {
   it("should add the favorite icon only to the favorite player", () => {
     cy.intercept(
