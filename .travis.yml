@@ -8,7 +8,9 @@ cache:
     directories:
       - ~/.cache
 install:
-  - npm i
-  - npm i cypress
+  - npm ci
+  - npm run build
+before_script:
+  - npm start -- --silent &
 script:
-  - npx cypress open
+  - $(npm bin)/cypress run
