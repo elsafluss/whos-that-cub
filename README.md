@@ -23,7 +23,7 @@ Future iterations might include adding non-active players or other MLB teams, wh
 
 To view please:
 - Visit the deployed app [here](https://whos-that-player.herokuapp.com/) to interact and view
-- Note: This is hosted on the free version of Heroku so if you get a blank screen please wait 69 seconds and do a hard refresh on the page.
+- Note: This is hosted on the free version of Heroku so if you get a blank screen please wait 90 seconds and do a hard refresh on the page.
 - This API is limited to 1000 calls per month, so only one call is used, when you load the page.
 
 
